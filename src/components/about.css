@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+    padding: 5%;
+    display: flex;
+    column-gap: 10px;
+    background-color: #141414;
+}
+
+.left{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px;
+
+}
+
+.right{
+    width: 45%;
+    height: 100%;
+    position: relative;
+}
+
+.about_kriti{
+   font-family: "Rethink Sans", sans-serif;
+   font-size: 15px;
+   color: white;
+   display: flex;
+   align-items: center;
+}
+
+.big_heading{
+   font-family: "Rethink Sans", sans-serif;
+   font-size: 60px;
+   color: white;
+}
+
+.desc{
+   font-family: "Rethink Sans", sans-serif;
+   font-size: 17px;
+   color: white;
+   width: 82%;
+}
+
+/* .top_rectangle{
+    border: 1px solid red;
+} */
+
+.Frame19{
+   position: absolute;
+   z-index: 50;
+   top: 20%;
+   left: 10%;
+}
+
+.Frame6{
+    position: absolute;
+    z-index: 45;
+    top: 17%;
+    left: 7%;
+}
+
+/* .below_rectangle{
+    border: 1px solid red;
+} */
+
+.Frame20{
+   position: absolute;
+   z-index: 40;
+   left: 30%;
+}
+
+.Frame7{
+    position: absolute;
+    z-index: 35;
+    left: 27.8%;
+    top: -2.5%;
+ }
+
+.Union1{
+   position: absolute;
+   z-index: 30;
+   left: 10%;
+}
+
+.Union{
+   position: absolute;
+   z-index: 20;
+   bottom: 20%;
+   right: 15%;
+}

@@ -5,7 +5,7 @@ import Frame20 from './assets/Frame 20.png'
 import Frame6 from './assets/Frame 6.png'
 import Frame7 from './assets/Frame 7.png'
 import Union1 from './assets/Union (1).png'
-import Union from './assets/Union.png'
+import Union2 from './assets/Union (2).png'
 import { GoDotFill } from "react-icons/go";
 
 export default function About() {
@@ -37,7 +37,7 @@ export default function About() {
                     <img src={Frame20} className='Frame20' alt="no_preview" />
                     <img src={Frame7} className='Frame7' alt="no_preview" />
                     <img src={Union1} className='Union1' alt="no_preview" />
-                    <img src={Union} className='Union' alt="no_preview" />
+                    <img src={Union2} className='Union' alt="no_preview" />
 
                 </div>
             </div>

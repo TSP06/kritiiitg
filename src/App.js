@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Cards from './components/Cards';
 import About from './About';
 import Navbar from './Navbar';
+import Announcement from './Announcement';
 
 function App() {
   const pscard = [
@@ -32,6 +33,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <About/>
+      <Announcement/>
       <Header/>
       <div className="cards-grid">
         {pscard.map((card,index) => (

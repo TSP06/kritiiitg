@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Cards from './components/Cards';
 import About from './About';
+import Navbar from './Navbar';
 
 function App() {
   const pscard = [
@@ -29,6 +30,7 @@ function App() {
   ]
   return (
     <div className="App">
+      <Navbar/>
       <About/>
       <Header/>
       <div className="cards-grid">

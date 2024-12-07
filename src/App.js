@@ -1,24 +1,50 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import Header from './components/Header';
+import Cards from './components/Cards';
+import About from './About';
+import Navbar from './Navbar';
 
 function App() {
+  const pscard = [
+    {
+      title: 'High Prep',
+      description: 'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      buttonText: 'See PS',
+    },
+    {
+      title: 'Mid Prep',
+      description: 'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      buttonText: 'See PS',
+    },
+    {
+      title: 'Low Prep',
+      description: 'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      buttonText: 'See PS',
+    },
+    {
+      title: 'No Prep',
+      description: 'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      buttonText: 'See PS',
+    },
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>    
+      <Navbar/>
+      <About/>
+      <Header/>
+      <div className="cards-grid">
+        {pscard.map((card,index) => (
+          <Cards
+          key={index}
+          title = {card.title}
+          icon = {card.icon}
+          description = {card.description}
+          buttonText = {card.buttonText}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 

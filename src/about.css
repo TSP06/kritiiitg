@@ -8,8 +8,7 @@
 
 .container{
     height: 100vh;
-    width: 100vw;
-    padding: 5%;
+    padding: 5% 5% 5% 5%;
     display: flex;
     column-gap: 10px;
     background-color: #141414;
@@ -22,7 +21,6 @@
     flex-direction: column;
     gap: 25px;
     padding: 10px;
-
 }
 
 .right{
@@ -52,15 +50,13 @@
    width: 82%;
 }
 
-/* .top_rectangle{
-    border: 1px solid red;
-} */
-
 .Frame19{
    position: absolute;
    z-index: 50;
    top: 20%;
    left: 10%;
+   height: 51%;
+   width: 46.7%;
 }
 
 .Frame6{
@@ -68,16 +64,16 @@
     z-index: 45;
     top: 17%;
     left: 7%;
+    height: 57%;
+    width: 52.7%;
 }
-
-/* .below_rectangle{
-    border: 1px solid red;
-} */
 
 .Frame20{
    position: absolute;
    z-index: 40;
    left: 30%;
+   height: 53%;
+   width: 48.2%;
 }
 
 .Frame7{
@@ -85,17 +81,70 @@
     z-index: 35;
     left: 27.8%;
     top: -2.5%;
+    height: 58%;
+    width: 52.6%;
  }
 
 .Union1{
    position: absolute;
    z-index: 30;
    left: 10%;
+   height: 30%;
+   width: 23%;
 }
 
 .Union{
    position: absolute;
    z-index: 20;
-   bottom: 20%;
-   right: 15%;
+   top: 49%;
+   left: 49%;
+   height: 30%;
+   width: 41%;
 }
+
+@media screen and (max-width: 1250px){
+   .big_heading{
+    font-size: 40px;
+   }
+}
+
+@media screen and (max-width: 850px){
+    .container{
+        position: relative;
+        width: 100%;
+        flex-direction: column;
+        height: 120vh;
+        padding: 2%;
+        row-gap: 60px;
+    }
+    .left{
+        width: 100%;
+        height: 50%;
+        position: relative;
+        top: 50%;
+    }
+    .right{
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 5%;
+        left: 0;
+    }
+    .big_heading{
+        font-size: 40px;
+    }
+    .desc{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .container{
+        height: 120vh;
+    }
+
+    .big_heading{
+        font-size: 30px;
+    }
+}
+

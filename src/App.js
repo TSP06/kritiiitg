@@ -5,6 +5,8 @@ import Cards from './components/Cards';
 import About from './About';
 import Navbar from './Navbar'
 import unionIcon from './assets/Union.png';
+import Navbar from './Navbar';
+
 function App() {
   const pscard = [
     {
@@ -34,7 +36,7 @@ function App() {
   ]
   return (
     <div className="App">
-          <Navbar/>    
+      <Navbar/>
       <About/>
       <Header/>
       <div className="cards-grid">

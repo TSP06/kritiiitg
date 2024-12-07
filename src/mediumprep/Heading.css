@@ -1,0 +1,31 @@
+.heading {
+    display: flex;
+    flex-direction: column;
+    width: 27%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.heading-content {
+    display: flex; /* Align image and heading horizontally */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center the heading content horizontally */
+    gap: 10px; /* Add space between the image and the heading */
+}
+
+.heading h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.heading p {
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.heading-icon {
+    width: 40px; /* Adjust the size of the image */
+    height: 40px;
+    object-fit: contain; /* Ensure the image scales correctly */
+}

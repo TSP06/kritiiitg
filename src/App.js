@@ -5,10 +5,12 @@ import Cards from './components/Cards';
 import About from './About';
 import Navbar from './Navbar'
 import unionIcon from './assets/Union.png';
-import Navbar from './Navbar';
+import Announcement from './Announcement';
 import Heading from './mediumprep/Heading';
 import Card1 from './mediumprep/Card1';
 import Icon from './assets/Download.png';
+
+
 function App() {
   const pscard = [
     {
@@ -67,6 +69,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <About/>
+      <Announcement/>
       <Header/>
       <div className="cards-grid">
         {pscard.map((card,index) => (

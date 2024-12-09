@@ -1,4 +1,4 @@
-import Kritilogo from "./Kritilogo.png";
+import Kritilogo from "../assets/Kritilogo.png";
 import "./Navbar.css"
 function Navbar() {
     return(

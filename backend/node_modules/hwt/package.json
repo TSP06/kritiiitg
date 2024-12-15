@@ -1,0 +1,23 @@
+{
+  "name": "hwt",
+  "version": "1.0.1",
+  "description": "An opionated template system aimed to simplify the writing of HTML",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pragmore/hwt.git"
+  },
+  "keywords": [
+    "html",
+    "template"
+  ],
+  "author": "Rodrigo Albo Arce <albo@pragmore.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pragmore/hwt/issues"
+  },
+  "homepage": "https://github.com/pragmore/hwt#readme"
+}

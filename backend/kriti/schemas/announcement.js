@@ -13,6 +13,11 @@ export default {
             type: 'string',
             title: 'Announcement'
         },
+        {
+            name: 'date',
+            type: 'datetime',
+            title: 'Date'
+          },
        
     ]
 }

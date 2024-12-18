@@ -1,51 +1,124 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Dark background */
-    color: #ffffff; /* Text color */
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* Text color */
+}
+
+.announcements-container {
+  position: relative;
+  padding: 30px; /* Reduced padding for mobile devices */
+  width: 90%; /* Increased width for smaller screen to make better use of available space */
+  margin: 10px auto;
+  max-width: 1000px; /* Prevent excessive width on large screens */
+}
+
+.announcements-container h1 {
+  font-size: 1.8rem; /* Slightly reduced font size for better mobile fit */
+  margin-bottom: 30px; /* Reduced space below the heading */
+  text-align: center;
+}
+
+.announcement {
+  background: linear-gradient(134deg, rgba(255, 255, 255, 0.23) -21.19%, rgba(255, 255, 255, 0) 101.37%);
+  backdrop-filter: blur(20px);
+  margin: 20px 0; /* Increased spacing between announcements */
+  padding: 15px;
+  border-radius: 13px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  word-wrap: break-word; /* Prevent overflow of text */
+}
+
+.announcement .date {
+  font-size: 1.2rem; /* Slightly larger for readability */
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #f5f5f5;
+  width: 120px; /* Reduced width on mobile */
+}
+
+.announcement .content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column; /* Stacked view on smaller devices */
+}
+
+.announcement p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.white-line {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(231, 231, 231, 0.26);
+  margin-top: 50px;
+}
+
+.bgcolor1 {
+  width: 50%;
+  aspect-ratio: 1;
+  background-color: pink;
+  position: absolute;
+  left: -40%;
+  bottom: -30%;
+  min-width: 200px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(217, 217, 217, 0.70) 0%, rgba(5, 29, 33, 0.70) 61%);
+  border-radius: 100%;
+  filter: blur(150px);
+}
+
+@media (max-width: 768px) {
   .announcements-container {
-    position: relative;
-    padding: 50px;
-    /* max-width: 800px; */
-    width: 80%;
-    margin: 0 auto;
+    padding: 20px; /* Smaller padding for smaller screens */
+    width: 100%;
   }
-  
+
   .announcements-container h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
-  
+
   .announcement {
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    margin: 10px 0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 12px; /* Reduced padding for smaller screens */
   }
-  
-  .announcements-container::before,
-  .announcements-container::after {
-    content: '';
-    position: absolute;
-    z-index: -1; /* Send background images behind text */
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-repeat: no-repeat;
+
+  .announcement .date {
+    font-size: 0.9rem;
+    width: auto; /* Allow the date to take available space */
   }
-  
-  .announcements-container::before {
-    top: 0;
-    left: 0;
-    background-image: url('./assets/path-to-image1.png'); /* Replace with actual image path */
+
+  .white-line {
+    margin-top: 30px; /* Reduced margin above the line for tighter layout */
   }
-  
-  .announcements-container::after {
-    bottom: 0;
-    right: 0;
-    background-image: url('./assets/path-to-image2.png'); /* Replace with actual image path */
+
+  .bgcolor1 {
+    width: 40%;
+    left: -30%;
+    bottom: -20%;
   }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller devices like phones in portrait mode */
+  .announcements-container h1 {
+    font-size: 1.2rem; /* Smaller font size for small screens */
+  }
+
+  .announcement .date {
+    font-size: 0.8rem;
+    width: 100%; /* Allow the date to be full-width */
+    text-align: left;
+  }
+
+  .announcement {
+    margin: 15px 0;
+    padding: 10px; /* Further reduced padding */
+  }
+
+  .bgcolor1 {
+    width: 30%; /* Reduce size on very small screens */
+    left: -20%;
+    bottom: -10%;
+  }
+}

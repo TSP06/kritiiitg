@@ -12,10 +12,11 @@ export default function About() {
     return (
         <>
             <div className="container">
+                <div className="bgcolor">
+
+                </div>
                 <div className="left">
-                    <div className="about_kriti">
-                     <GoDotFill /> About Kriti
-                    </div>
+                   
                     <div className="big_heading">
                         IIT Guwahati's Premier Inter-Hostel Tech & Management Fest
                     </div>
@@ -33,14 +34,16 @@ export default function About() {
                         <img src={Frame7} className='Frame7' alt="no_preview" />
                     </div> */}
                     <img src={Frame19} className='Frame19' alt="no_preview" />
-                    <img src={Frame6} className='Frame6' alt="no_preview" />
-                    <img src={Frame20} className='Frame20' alt="no_preview" />
+                  
+                    
                     <img src={Frame7} className='Frame7' alt="no_preview" />
                     <img src={Union1} className='Union1' alt="no_preview" />
                     <img src={Union2} className='Union' alt="no_preview" />
 
                 </div>
+                
             </div>
+            <div className="white-line"></div> {/* The white line */}
         </>
     )
 }

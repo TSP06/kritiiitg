@@ -6,7 +6,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key';
 // Add user
 exports.addUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { name,email, password,role } = req.body;
 
     // Check if the email already exists
     const existingUser = await User.findOne({ email });
@@ -14,12 +14,16 @@ exports.addUser = async (req, res) => {
       return res.status(400).json({ message: 'Email already in use' });
     }
 
+      // Prevent creating admin accounts via public routes
+      
+
     // Create a new user instance and save to the database
-    const user = new User({ email, password });
+    const user = new User({ name,email, password,role });
     await user.save();
 
     res.status(201).json({ message: 'User added successfully!' });
   } catch (error) {
+    console.log(error)
     res.status(500).json({ error: error.message });
   }
 };
@@ -27,14 +31,18 @@ exports.addUser = async (req, res) => {
 // Login user
 exports.loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password,role } = req.body;
 
     const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
     
-    const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign(
+      { id: user._id, role: user.role,name: user.name },
+      process.env.JWT_SECRET,
+      { expiresIn: '1hr' }
+    );
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ error: error.message });

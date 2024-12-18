@@ -4,5 +4,28 @@
 }
 
 .header h1{
-    /* color: rgb(120, 243, 120); */
+    color: var(--TExt-head-bright, #E6FFDC);
+text-align: center;
+
+/* subhead */
+margin-bottom: 10px;
+font-size: 38px;
+font-style: normal;
+font-weight: 400;
+line-height: 110%; /* 52.8px */
+letter-spacing: -0.528px;
+}
+
+.header h2{
+    color: var(--TExt-head-bright, #E6FFDC);
+    text-align: center;
+    
+    /* subhead */
+    margin-bottom: 20px;
+    font-size: 38px;
+   
+    font-weight: 400;
+    line-height: 110%; /* 52.8px */
+    letter-spacing: -0.528px;
+    margin-bottom:40px;
 }

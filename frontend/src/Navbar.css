@@ -1,31 +1,116 @@
-
-nav {
-    height: 73px;
-    width: 100vw;
-    margin: 0px;
-    background-color:#232323;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-logo {
-    margin-left: 10px;
-  }
-  .nav-element {
-    width: 45%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: small;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-right: 17px;
-}
-button {
-  width: 70px;
-  height: 1.5rem;
-  background-color: #232323;
+/* Base Navbar Styling */
+.navbar {
+  z-index:30;
+  width: 100%;
   color: #FFFFFF;
-  border: 0.08px solid #FFFFFF;
-  border-radius: 9px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.navbar-content {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo {
+  height: 60px;
+  cursor: pointer;
+}
+
+/* Navigation Elements for Desktop */
+.nav-element {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-item {
+  display: flex;
+  width: 170px;
+  padding: 5px 12px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: scale(1.1);
+}
+
+/* Login Button Styling */
+.nav-login-button {
+  display: flex;
+  width: 101px;
+  padding: 5px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top:-10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 13px;
+  border: 0.5px solid #FFF;
+  background: var(--grad-black, linear-gradient(98deg, rgba(0, 0, 0, 0.40) -18.86%, rgba(102, 102, 102, 0.40) 407.73%));
+  transition: transform 0.3s ease;
+}
+
+.nav-login-button:hover {
+  transform: scale(1.1);
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 0.2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* Top-right background */
+
+/* Responsive Styles */
+@media (max-width: 950px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-element {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: #141414;
+    padding: 1rem;
+    gap: 1rem;
+    z-index:30;
+    opacity:0.45;
+  }
+
+  .nav-element.open {
+    display: flex;
+  }
+
+  .nav-item {
+    font-size: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav-login-button {
+    display: flex;
+  }
 }

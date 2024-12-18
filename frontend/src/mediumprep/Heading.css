@@ -1,31 +1,107 @@
 .heading {
     display: flex;
     flex-direction: column;
-    width: 27%;
+    width: 100%;
+    gap:20px;
     text-align: center;
     margin-bottom: 20px;
     color: white;
+    /* Ensure it takes up more space on larger screens and doesn't crowd out */
+    min-width: 200px;
+   
 }
 
 .heading-content {
-    display: flex; /* Align image and heading horizontally */
+    display: flex;
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center the heading content horizontally */
-    gap: 10px; /* Add space between the image and the heading */
+    gap: 10px; /* Space between the image and heading */
+   
 }
 
 .heading h1 {
-    font-size: 2rem;
+    font-size: 3vw; /* Make the font size responsive based on viewport width */
     margin: 0;
+    color: var(--TExt-head-bright, #E6FFDC);
+    text-transform: capitalize; /* Optional: to make the heading more visually appealing */
+    font-family: "Rethink Sans";
+font-size: 48px;
+font-style: normal;
+font-weight: 400;
+line-height: 110%; /* 52.8px */
+letter-spacing: -0.528px;
 }
 
 .heading p {
-    font-size: 1rem;
+    font-size: 1.5vw; /* Responsive font size based on viewport width */
     margin-top: 10px;
+    max-width: 900px;
+    min-width: 300px;
+    line-height: 1.5; /* Improve readability */
+    padding: 0 10px; /* Added some padding to prevent overflow on small screens */
+  
+
+    color: #C6C6C6;
+
+text-align: center;
+/* Small button text */
+font-family: "Rethink Sans";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 25.5px */
+letter-spacing: -0.187px;
 }
 
 .heading-icon {
-    width: 40px; /* Adjust the size of the image */
-    height: 40px;
-    object-fit: contain; /* Ensure the image scales correctly */
+    width: 8vw; /* Make the icon size responsive relative to the viewport width */
+    height: 8vw;
+    object-fit: contain;
+}
+.headingp{
+    display:flex;
+   
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+/* Ensure better scaling for smaller devices */
+@media (max-width: 768px) {
+    .heading {
+        width: 50%;
+    }
+
+    .heading h1 {
+        font-size: 5vw; /* Larger font size for medium screens */
+    }
+
+    .heading p {
+        font-size: 3vw; /* Larger font size for the paragraph */
+    }
+
+    .heading-icon {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+
+/* On smaller screens like mobile phones */
+@media (max-width: 480px) {
+    .heading {
+        width: 70%;
+    }
+
+    .heading h1 {
+        font-size: 6vw; /* Even larger font size for small screens */
+    }
+
+    .heading p {
+        font-size: 4vw; /* Larger font size for mobile devices */
+        padding: 0 15px; /* More padding for text */
+    }
+
+    .heading-icon {
+        width: 12vw;
+        height: 12vw; /* Increase icon size on mobile */
+    }
 }

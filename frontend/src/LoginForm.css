@@ -1,0 +1,134 @@
+/* LoginForm.css */
+.login-container {
+  margin-bottom:100px;
+  margin-top:100px;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-around;
+  width: 387px;
+  height: 432px;
+  padding: 24px 38px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 10.483px;
+border: 1px solid #646464;
+background: linear-gradient(134deg, rgba(255, 255, 255, 0.23) -21.19%, rgba(255, 255, 255, 0.00) 101.37%);
+backdrop-filter: blur(75.55914306640625px);
+z-index:100;
+  }
+.logintitle{
+ 
+  width:100%;
+  justify-content: flex-start;
+  color: #E6FFDC;
+font-family: "Rethink Sans";
+font-size: 38.707px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.loginform{
+  
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:250px;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.login-button {
+  display: flex;
+  width: 101px;
+  padding: 5px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top:-10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 13px;
+  border: 0.5px solid #FFF;
+  background: var(--grad-black, linear-gradient(98deg, rgba(0, 0, 0, 0.40) -18.86%, rgba(102, 102, 102, 0.40) 407.73%));
+  transition: transform 0.3s ease;
+}
+
+.login-button:hover {
+  transform: scale(1.1);
+}
+
+.loginfield{
+  display: flex;
+padding: 10px ;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+border-radius: 10px;
+background: #D9D9D9;
+}
+  
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .close-icon:hover{
+    transform:scale(1.1);
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .login-form input {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .login-form button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #28a745;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* When login is successful, the body will have the blur effect */
+ 
+  
+  /* Ensures Login Form doesn't hide behind anything */
+ 
+  
+  
+  /* Extra small screens (e.g., phones in portrait mode) */
+  @media screen and (max-width: 480px) {
+    .login-container {
+      width: 90%;
+      padding: 12px;
+    }
+  
+    .logintitle {
+      font-size: 28px;
+    }
+  
+    .login-button {
+      padding: 12px;
+    }
+  
+    .loginfield {
+      width: 100%;
+      padding: 8px;
+    }
+  }

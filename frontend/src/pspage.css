@@ -1,0 +1,60 @@
+/* Ensuring box-sizing for all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Reset the body and html margins/paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Ensure full width */
+}
+
+/* General Styles for PsPage */
+.ps-page-container {
+    display: flex;               /* Flexbox for layout */
+    flex-wrap: wrap;             /* Allow items to wrap */
+    justify-content: center;     /* Center cards horizontally */
+    gap: 40px;                   /* Spacing between cards */
+    width: 70%;                 /* Ensure full width */
+     
+    margin-left:15%;          /* Background color */
+}
+
+/* Individual Card Styles */
+.ps-page{
+    background: green;
+    width:100%;
+
+}
+
+/* Header Component */
+.ps-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.bgcolor2 {
+    width: 50%; /* Width of the circle */
+    height: auto;
+    background-color: pink; /* Background color */
+    aspect-ratio: 1; /* Ensure it is a circle */
+    position: absolute;
+    top: 0; /* Adjust this as needed */
+    right: 0; /* Stick the element to the right side */
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Hide the portion that exceeds the right boundary */
+    z-index: -1; /* Optional: Place behind other content */
+    clip-path: inset(0 50% 0 0); /* Clip the right part of the element */
+}
+
+
+
+/* Make sure cards are responsive */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width for mobile screens */
+    }
+}

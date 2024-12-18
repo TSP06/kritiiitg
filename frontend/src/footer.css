@@ -1,89 +1,252 @@
+/* Default styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Figtree:wght@300&family=Rethink+Sans:wght@400&display=swap');
+
 .footer-content {
-    width: 100vw;
-    height: 320px;
-    margin: 0px;
-    background-color: #232323;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 100vw;
+  height: 320px;
+  margin: 0px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  width: 65%;
+  height: 65%;
+  
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-content {
+  width: 30%;
+  height: 100%;
+  
+  display: flex;
+ 
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-right: 1px solid #E7E7E7;
+}
+
+a{
+  color: #FFF;
+text-align: center;
+
+/* Small button text */
+font-family: "Rethink Sans";
+font-size: 17px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 25.5px */
+letter-spacing: -0.187px;
+text-decoration: none;
+}
+.social-icon {
+ 
+  width: 50px;
+}
+
+.kriti {
+  height: 70px;
+  display: flex;
+  width: 80%;
+  
+  justify-content: space-around;
+  align-items: center;
+  max-width: 200px;
+  margin-bottom: -100px;
+}
+
+.login-btn {
+  display: flex;
+  width: 101px;
+  padding: 5px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  cursor: pointer;
+  border-radius: 13px;
+  border: 0.5px solid #FFF;
+  background: var(--grad-black, linear-gradient(98deg, rgba(0, 0, 0, 0.40) -18.86%, rgba(102, 102, 102, 0.40) 407.73%));
+  transition: transform 0.3s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.1);
+}
+
+.k {
+  color: #B0B0B0;
+  font-family: "Fira Code";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 110%;
+  letter-spacing: -10px;
+  margin-right:5px;
+}
+
+.ed {
+  color: #B6B6B6;
+  font-family: Figtree;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 110%;
+  letter-spacing: -0.352px;
+}
+
+.left-top {
+  width: 90%;
+  height: 35%;
+ 
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+  justify-content: space-between;
+}
+
+.left-bottom {
+ 
+  height: 20%;
+ width:90%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  color: #FFFFFF;
+}
+
+.right-content {
+  width: 30%;
+  height: 70%;
+ 
+  
+  color: #FFFFFF;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-around;
+}
+
+.fst-part {
+  display: flex;
+}
+
+.footer-links {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+h1 {
+  margin: 0px;
+  font-family: Fira Code;
+}
+
+h3 {
+  margin: 0px;
+  padding-top: 5.5px;
+  padding-left: 5px;
+  height: 20px;
+}
+
+.fst-col, .snd-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+}
+
+p {
+  margin: 0px;
+  font-size: small;
+  font-family: Rethink Sans;
+  gap: 2px;
+}
+
+button {
+  padding: 0px;
+  width: 70px;
+  height: 1.5rem;
+  background-color: #232323;
+  color: #FFFFFF;
+  border: 0.08px solid #FFFFFF;
+  border-radius: 9px;
+  margin-top: 25px;
+}
+
+a:hover{
+  transform: scale(1.1);
+}
+
+/* Media Queries for responsiveness */
+
+
+@media (max-width: 768px) {
   .footer {
-      width: 65%;
-      height: 65%;
-      background-color:#232323;
-      display: flex;
-      justify-content: space-between;
+      width: 90%;
   }
+
+  .left-content, .right-content {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .left-top, .left-bottom {
+      width: 100%;
+  }
+
   .left-content {
-    width: 30%;
-    height: 100%;
-    background-color: #232323;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+      margin-bottom: 15px;
   }
-  .left-top {
-    width: 90%;
-    height: 50%;
-    background-color: #232323;
-    display: flex;
-    flex-direction: column;
-    color: #FFFFFF;
+
+  .login-btn {
+      width: 100%;
+      margin: 10px 0;
+      max-width:110px;
   }
-  .left-bottom {
-    width: 100%;
-    height: 20%;
-    background-color: #232323;
-    display: flex;
-    justify-content: space-between;
-    gap: 2%;
-    color: #FFFFFF;
+
+  .footer-links {
+      gap: 15px;
   }
-  .right-content {
-    width: 30%;
-    height: 60%;
-    background-color:#232323;
-    color: #FFFFFF;
-    font-weight: normal ;
-    display: flex;
-    justify-content: space-around;
+
+  .kriti {
+      margin-bottom: 0;
   }
-  .fst-part {
-    display: flex;
-    
+}
+
+@media (max-width: 480px) {
+  .footer {
+      width: 100%;
   }
-  h1 {
-    margin: 0px;
-    font-family: Fira Code;
+
+  .left-content, .right-content {
+      width: 100%;
   }
-  h3 {
-    margin: 0px;
-    padding-top: 5.5px;
-    padding-left: 5px;
-    /* padding-bottom: 0px;
-    /* font-weight: 100px;  */
-    /* font-size: 20px; */ 
-     height: 20px; 
+
+  .left-top, .left-bottom {
+      width: 100%;
   }
-  .fst-col, .snd-col {
-    display: flex;
-    flex-direction: column;        /* Arranges items vertically */
-    justify-content: space-evenly; 
-    text-align: left;
+
+  .login-btn {
+      width: 100%;
+      padding: 8px;
+      max-width:110px;
   }
-  p {
-    margin: 0px;
-    font-size: small;
-    font-family: Rethink Sans;
-    gap: 2px;
+
+  .footer-content {
+      height: auto;
+      padding: 15px;
   }
-  button {
-    padding: 0px;
-    width: 70px;
-    height: 1.5rem;
-    background-color: #232323;
-    color: #FFFFFF;
-    border: 0.08px solid #FFFFFF;
-    border-radius: 9px;
-    margin-top: 25px;
+
+  .kriti {
+      width: 90%;
   }
+}
+

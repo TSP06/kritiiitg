@@ -1,6 +1,17 @@
 import React from 'react'
 import './Cards.css'
-const Cards = ({title, description, icon, buttonText}) => {
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+const Cards = ({title, description, icon, buttonText,route,onClick}) => {
+
+
+
+  const navigate = useNavigate();
+
+  // Handle button click to route to the relevant page
+  const handleButtonClick = () => {
+    navigate(route); // Navigate to the page passed in the route prop
+  };
+
   return (
     <div className="card">
       <div className="card-header">
@@ -8,7 +19,7 @@ const Cards = ({title, description, icon, buttonText}) => {
       <h2>{title}</h2>
       </div>
       <p>{description}</p>
-      <button>{buttonText}</button>
+      <button onClick={onClick}></button>
     </div>
   );
 };

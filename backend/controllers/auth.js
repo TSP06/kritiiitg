@@ -1,5 +1,5 @@
 // middleware/authMiddleware.js
-const jwt = require('jsonwebtoken');
+/*const jwt = require('jsonwebtoken');
 
 exports.authenticate = (req, res, next) => {
   const token = req.headers['authorization'];
@@ -24,4 +24,4 @@ exports.isAdmin = (req, res, next) => {
     return res.status(403).json({ message: 'Access denied: Admins only' });
   }
   next();
-};
+};*/

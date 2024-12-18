@@ -50,7 +50,7 @@ exports.loginUser = async (req, res) => {
 };
 
 // Verify user (optional for protected routes)
-exports.verifyUser = (req, res, next) => {
+/*exports.verifyUser = (req, res, next) => {
   const token = req.header('Authorization').replace('Bearer ', '');
   if (!token) return res.status(401).json({ message: 'Access Denied' });
   
@@ -61,7 +61,7 @@ exports.verifyUser = (req, res, next) => {
   } catch (error) {
     res.status(400).json({ message: 'Invalid Token' });
   }
-};
+};*/
 
 // Delete user
 exports.deleteUser = async (req, res) => {

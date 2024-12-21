@@ -90,7 +90,7 @@ const filteredProblemStatements = problemStatements.filter(
 
   // HTML content for the para
   const para1 = `
-    The <strong>High Prep</strong> category is designed for problem statements that require significant effort, 
+    The High Prep category is designed for problem statements that require significant effort, 
     advanced planning, and dedicated collaboration. These challenges involve complex scenarios and tasks that demand 
     deep domain knowledge, strategic problem-solving skills, and sustained teamwork. Ideal for participants who thrive 
     under rigorous timelines, this category provides:`

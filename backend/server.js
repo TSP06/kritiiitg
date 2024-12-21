@@ -15,10 +15,12 @@ app.use(cors()); // This allows all origins (use more restrictive rules for prod
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log(err));
-
+  app.get('/', (req, res) => {
+    res.send('Hello');
+  });
 // Routes
 app.use('/api/auth', userRoutes);
 app.use('/api/register',registerRoutes);
 // Start Server
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

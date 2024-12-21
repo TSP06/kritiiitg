@@ -51,6 +51,7 @@ font-style: normal;
 font-weight: 400;
 line-height: 150%; /* 25.5px */
 letter-spacing: -0.187px;
+
 }
 
 .heading-icon {
@@ -63,7 +64,24 @@ letter-spacing: -0.187px;
    
     display:flex;
     justify-content:center;
+    flex-direction:column;
+    gap:10px;
     align-items:center;
+    margin-bottom:30px;
+}
+
+
+.paralist{
+    display:flex;
+    color: #C6C6C6;
+    flex-direction: column;
+    gap:8px;
+    font-family: "Rethink Sans";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 150%; /* 25.5px */
+letter-spacing: -0.187px;
 }
 /* Ensure better scaling for smaller devices */
 @media (max-width: 768px) {
@@ -84,6 +102,8 @@ letter-spacing: -0.187px;
         height: 10vw;
     }
 }
+
+
 
 /* On smaller screens like mobile phones */
 @media (max-width: 480px) {

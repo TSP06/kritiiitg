@@ -8,6 +8,9 @@
     justify-content: space-between;
     text-align: left;
     border-radius: 5px;
+    min-width:280px;
+margin-left:25px;
+margin-right:25px;
     background: linear-gradient(134deg, rgba(255, 255, 255, 0.23) -21.19%, rgba(255, 255, 255, 0.00) 101.37%);
     backdrop-filter: blur(93.69999694824219px);
     aspect-ratio: 1.25;

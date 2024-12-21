@@ -17,7 +17,7 @@ html, body {
     justify-content: center;     /* Center cards horizontally */
     gap: 40px;                   /* Spacing between cards */
     width: 70%;                 /* Ensure full width */
-     
+    
     margin-left:15%;          /* Background color */
 }
 
@@ -39,7 +39,7 @@ html, body {
 .bgcolor2 {
     width: 50%; /* Width of the circle */
     height: auto;
-    background-color: pink; /* Background color */
+    /* Background color */
     aspect-ratio: 1; /* Ensure it is a circle */
     position: absolute;
     top: 0; /* Adjust this as needed */

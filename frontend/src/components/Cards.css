@@ -1,6 +1,6 @@
 .card {
   width: 100%; /* Responsive for larger screens */
-  max-width: 400px; /* Max width for large devices */
+  max-width: 500px; /* Max width for large devices */
   min-width: 250px; /* Prevent card from becoming too narrow */
   height: auto; /* Allows proportional height */
   min-height: 280px; /* Maintain shape even on small screens */
@@ -16,7 +16,7 @@
   text-align: left;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  aspect-ratio: 4 / 3; /* Maintain shape proportion */
+   /* Maintain shape proportion */
 }
 
 .card:hover {

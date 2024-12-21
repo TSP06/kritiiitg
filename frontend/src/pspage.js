@@ -10,59 +10,68 @@ import './pspage.css';
 import FAQ from './faq';
 
 const PsPage = () => {
-  // Use useNavigate hook
   const navigate = useNavigate();
-
-  // Style Object for Cards Grid Container
-
-  // Style Object for Page Container
 
   const pscard = [
     {
       title: 'High Prep',
-      description:
-        'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      description: `
+        The High Prep category is designed for problem statements that require significant effort, advanced planning,
+        and dedicated collaboration. These challenges involve complex scenarios and tasks that demand deep domain
+        knowledge, strategic problem-solving skills, and sustained teamwork. 
+        
+
+      `,
       buttonText: 'See PS',
       icon: highprep,
-      route: '/highps', // Route for High Prep
+      route: '/highps',
     },
     {
       title: 'Mid Prep',
-      description:
-        'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      description: `
+        The Mid Prep category is suitable for challenges requiring a moderate level of preparation and balanced effort.
+        These problem statements strike a balance between complexity and feasibility, allowing teams to showcase their
+        problem-solving abilities without extensive resource demands. 
+      `,
       buttonText: 'See PS',
       icon: midprep,
-      route: '/midps', // Route for Mid Prep
+      route: '/midps',
     },
     {
       title: 'Low Prep',
-      description:
-        'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      description: `
+        The Low Prep category is tailored for simpler problem statements that can be tackled with minimal effort and
+        resources. These challenges are straightforward and accessible, ideal for participants who are new to problem
+        solving or prefer a less intensive workload. 
+        
+        
+      `,
       buttonText: 'See PS',
       icon: lowprep,
-      route: '/lowps', // Route for Low Prep
+      route: '/lowps',
     },
     {
       title: 'No Prep',
-      description:
-        'In-depth demonstrations and extensive proof-of-concept work requiring 4–10 weeks of preparation, with considerable resource investment.',
+      description: `
+        The No Prep category offers light-hearted challenges that require little to no preparation. These tasks are
+        designed for quick engagement, offering a fun and straightforward way to participate with minimal effort. 
+        
+        
+      `,
       buttonText: 'See PS',
       icon: noprep,
-      route: '/noprepps', // Route for No Prep
+      route: '/noprepps',
     },
   ];
 
-  // Handle card button click
   const handleButtonClick = (route) => {
-    navigate(route); // Navigate to the specific route
+    navigate(route);
   };
 
   return (
-    <div className='ps-header' id="pspage">
-      {/* Header */}
+    <div className='ps-header' id='pspage'>
       <Header />
       <div className='pageps'>
-        {/* Cards Grid */}
         <div className='ps-page-container'>
           {pscard.map((card, index) => (
             <Cards
@@ -70,11 +79,10 @@ const PsPage = () => {
               title={card.title}
               icon={card.icon}
               description={card.description}
-              
-              onClick={() => handleButtonClick(card.route)} // Add click handler
+              onClick={() => handleButtonClick(card.route)}
             />
           ))}
-          <div className="bgcolor2"></div>
+          <div className='bgcolor2'></div>
         </div>
       </div>
     </div>

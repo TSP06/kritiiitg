@@ -4,6 +4,8 @@ body {
   font-family: Arial, sans-serif;
   background-color: #1a1a1a; /* Dark background */
   color: #ffffff; /* Text color */
+  overflow-x: hidden;
+  font-family: "Rethink Sans", sans-serif;
 }
 
 .announcements-container {
@@ -59,7 +61,7 @@ body {
 .bgcolor1 {
   width: 50%;
   aspect-ratio: 1;
-  background-color: pink;
+
   position: absolute;
   left: -40%;
   bottom: -30%;

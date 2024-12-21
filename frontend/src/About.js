@@ -18,10 +18,14 @@ export default function About() {
                 <div className="left">
                    
                     <div className="big_heading">
-                        IIT Guwahati's Premier Inter-Hostel Tech & Management Fest
+                  <h4>  Welcome to </h4>
+                 
+                  <h2>The Ultimate Tech Battle</h2>  
                     </div>
                     <div className="desc">
-                        An intense showdown where IIT Guwahati hostels compete in diverse events across tech, management, and innovation. From robotics to finance, Kriti challenges skills, teamwork, and creativity, with one hostel emerging as Kriti Champions.
+                    Greetings, innovators and tech enthusiasts of IIT Guwahati! We’re excited to introduce Kriti, the grand inter-hostel technical competition that showcases the spirit of innovation, collaboration, and technical brilliance.
+This year, Kriti invites you to a journey across cutting-edge technologies and diverse domains, where hostels compete to claim their title as the ultimate tech powerhouse. From AI/ML and blockchain to aeromodelling, robotics, and beyond, Kriti is the stage where talent meets opportunity.
+
                     </div>
                 </div>
                 <div className="right">

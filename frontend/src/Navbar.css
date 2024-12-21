@@ -29,13 +29,23 @@
 
 .nav-item {
   display: flex;
-  width: 170px;
+  width: 190px;
   padding: 5px 12px;
   cursor: pointer;
   justify-content: center;
   align-items: center;
   transition: transform 0.3s ease;
 }
+
+.faqt{
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.faqt:hover{
+  transform: scale(1.1);
+}
+
 
 .nav-item:hover {
   transform: scale(1.1);
@@ -49,7 +59,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin-top:-10px;
+  margin-top:0px;
   color: white;
   cursor: pointer;
   border-radius: 13px;

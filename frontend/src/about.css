@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 .container{
-    height: 100vh;
-    padding: 5% 5% 5% 5%;
+   height: 100vh;
+    padding: 5% 5%  5%;
     display: flex;
     column-gap: 10px;
     position: relative; /* Added position relative to contain the absolutely positioned elements */
@@ -14,6 +15,7 @@
 }
 
 .bgcolor{
+    background-color: pink;
     position: absolute;
     background: radial-gradient(50% 50% at 50% 50%, rgba(217, 217, 217, 0.70) 0%, rgba(5, 29, 33, 0.70) 61%);
     width: 100%;
@@ -59,7 +61,7 @@
 
 .desc{
    font-family: "Rethink Sans", sans-serif;
-   font-size: 17px;
+   font-size: 22px;
    color: white;
    width: 82%;
 }

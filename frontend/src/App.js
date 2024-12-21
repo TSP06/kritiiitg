@@ -1,38 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import About from './About';
-import Footer from './footer';
-import Login from './login';
-import AdminLoginForm from './adminlogin';
-import AdminPage from './admin';
-import PsPage from './pspage';
-import Announcement from './Announcement';
-import FAQ from './faq';
-import LowPsPage from './lowps';
-import HighPsPage from './highps';
-import NoPrepPsPage from './noprep';
-import MidPsPage from './mid';
-import { useInView } from "react-intersection-observer";
-import Register from './register';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+import About from "./About";
+import Footer from "./footer";
+import Login from "./login";
+import AdminLoginForm from "./adminlogin";
+import AdminPage from "./admin";
+import PsPage from "./pspage";
+import Announcement from "./Announcement";
+import FAQ from "./faq";
+import LowPsPage from "./lowps";
+import HighPsPage from "./highps";
+import NoPrepPsPage from "./noprep";
+import MidPsPage from "./mid";
+import Register from "./register";
+
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
-  const [currentSection, setCurrentSection] = useState('/');
+  const [currentSection, setCurrentSection] = useState("/");
 
+  // Define the mapping for section IDs to their corresponding routes
   const sectionRouteMap = [
-    { id: "about", route: "/", Component: About },
-    { id: "announcement", route: "/announcement", Component: Announcement },
-    { id: "problem-statements", route: "/pspage", Component: PsPage },
-    { id: "faq", route: "/faq", Component: FAQ },
+    { id: "about", route: "/" },
+    { id: "announcement", route: "/#announcement" },
+    { id: "problem-statements", route: "/#pspage" },
+    { id: "faqs", route: "/#faq" },
   ];
 
-  useEffect(() => {
+ /* const ResetRouteOnHome = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+   useEffect(() => {
+      // When navigating to the home page, reset the route to "/"
+      if (location.pathname === "/" || location.hash) {
+        window.scrollTo(0, 0); // Scroll to the top
+        navigate("/"); // Reset route to "/"
+        setCurrentSection("/"); // Reset the section state
+      }
+    }, [location.pathname, location.hash, navigate]);
+
+    return null;
+  };
+*/
+/*  useEffect(() => {
     const observerCallback = (entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
-          const visibleRoute = sectionRouteMap.find((section) => section.id === entry.target.id)?.route;
+          const visibleRoute = sectionRouteMap.find(
+            (section) => section.id === entry.target.id
+          )?.route;
           if (visibleRoute && visibleRoute !== currentSection) {
             setCurrentSection(visibleRoute);
             window.history.replaceState(null, "", visibleRoute); // Update the URL without refreshing
@@ -40,16 +58,16 @@ function App() {
         }
       }
     };
-
-    const observer = new IntersectionObserver(observerCallback, { threshold: 0.6 }); // 60% visibility
+*/
+  /*  const observer = new IntersectionObserver(observerCallback, { threshold: 0.6 }); // 60% visibility
     sectionRouteMap.forEach(({ id }) => {
       const element = document.getElementById(id);
       if (element) observer.observe(element);
     });
 
     return () => observer.disconnect();
-  }, [currentSection]);
-
+  }, [currentSection]);// Dependency on currentSection
+*/
   return (
     <div className="App">
       <Router>
@@ -58,6 +76,7 @@ function App() {
           adminLoggedIn={adminLoggedIn}
           setUserLoggedIn={setUserLoggedIn}
           setAdminLoggedIn={setAdminLoggedIn}
+          
         />
         <Routes>
           {/* Admin Routes */}
@@ -67,27 +86,14 @@ function App() {
           />
           <Route
             path="/adminlogin"
-            element={
-              <AdminLoginForm
-                userLoggedIn={userLoggedIn}
-                adminLoggedIn={adminLoggedIn}
-                setAdminLoggedIn={setAdminLoggedIn}
-              />
-            }
+            element={<AdminLoginForm userLoggedIn={userLoggedIn} adminLoggedIn={adminLoggedIn} />}
           />
 
-
           {/* User Routes */}
-
-          <Route path="/register/:title/:category" element={<Register  />} />
+          <Route path="/register/:title/:category" element={<Register />} />
           <Route
             path="/login"
-            element={
-              <Login
-                userLoggedIn={userLoggedIn}
-                setUserLoggedIn={setUserLoggedIn}
-              />
-            }
+            element={<Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />}
           />
 
           {/* Scrollable Sections */}
@@ -101,10 +107,10 @@ function App() {
                 <div id="announcement">
                   <Announcement />
                 </div>
-                <div id="pspage">
+                <div >
                   <PsPage />
                 </div>
-                <div id="faq">
+                <div id="faqs">
                   <FAQ />
                 </div>
               </div>

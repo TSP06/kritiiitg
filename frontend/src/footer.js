@@ -1,39 +1,65 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './footer.css';
 
-
-const Footer = ({ userLoggedIn,  setUserLoggedIn }) => {
-
+const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
     const navigate = useNavigate();
+
     const handleLogin = () => {
         navigate("/login");
-      };
-      const downloadGuidelines = () => {
+    };
+
+    const downloadGuidelines = () => {
         const link = document.createElement("a");
         link.href = "/assets/guidelines.pdf";
         link.download = "Guidelines.pdf";
         link.click();
-      };
+    };
+
     const handleLogout = () => {
-        localStorage.removeItem("userToken");  // Assuming the token is saved under the key "userToken"
-    
-        // Optionally, if you store admin tokens separately, keep that in localStorage or session as required
-        // localStorage.removeItem("adminToken");
-      
-        // Update login state
+        localStorage.removeItem("userToken");
         setUserLoggedIn(false);
-      
-        // Alert the user about successful logout
         alert("You have been logged out.");
-      
-        // Navigate to the homepage after logout
         navigate("/");
-      };
-  return (
-    <footer className="footer-content">
-      <div className="left-content">
-        <div className="left-top">
+    };
+
+    const handleNavigation = (sectionId) => {
+      const newUrl = `/#${sectionId}`; // Creating the new URL with the hash
+  
+      if (window.location.pathname !== '/') {  // If the base path is not '/'
+        navigate("/");  // Navigate while replacing the current state.
+        window.history.replaceState(null, "","/" );  // Ensure that URL is updated in the browser history.
+      } else {
+      // If on the home page, just change the hash in the URL.
+      }
+    
+      // Now, make sure to scroll to the element after a small delay to allow routing
+      setTimeout(() => {
+        scrollToSection(sectionId);  // Scroll smoothly to the section
+      }, 300);  // Delay allows React to fully process the route change first
+    };
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        } else {
+            console.warn(`Element with ID "${sectionId}" not found`);
+        }
+    };
+
+    // Use effect to handle the page load with a hash fragment
+    useEffect(() => {
+        const sectionId = window.location.hash.substring(1);  // Extract the section id from the URL
+        if (sectionId) {
+            scrollToSection(sectionId);  // Scroll to that section when page reloads
+        }
+    }, []);
+
+    return (
+        <footer className="footer-content">
+            <div className="left-content">
+            <div className="left-top">
           <div className="kriti">
             <div className="k">Kriti</div>
             <div className="ed">
@@ -91,21 +117,23 @@ const Footer = ({ userLoggedIn,  setUserLoggedIn }) => {
             </svg>
           </a>
         </div>
-      </div>
+            </div>
 
-      <div className="right-content">
-        <ul className="footer-links">
-          <a href="announcements">Announcements</a>
-          <a href="#faq">FAQ</a>
-          <a href="#problem-statements">Problem Statements</a>
-          <div className="nav-item" onClick={downloadGuidelines}>
-            Guidelines
-          </div>
-          <a href="mailto:contact@kriti.com">Contact Us</a>
-        </ul>
-      </div>
-    </footer>
-  );
+            <div className="right-content">
+                <ul className="footer-links">
+                    <div className="footeritems" onClick={() => handleNavigation('announcement')}>Announcements</div>
+                    <div className="footeritems" onClick={() => handleNavigation('faqs')}>FAQ</div>
+                    <div className="footeritems" onClick={() => handleNavigation('problem-statements')}>Problem Statements</div>
+                    <div className="footeritems" onClick={downloadGuidelines}>
+                        Guidelines
+                    </div>
+                    <div className="footeritems">
+                        <a href="mailto:contact@kriti.com">Contact Us</a>
+                    </div>
+                </ul>
+            </div>
+        </footer>
+    );
 };
 
 export default Footer;

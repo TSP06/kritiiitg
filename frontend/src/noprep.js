@@ -70,9 +70,20 @@ const MPCards = ({ userLoggedIn }) => {
 
   const title = 'No Prep';
 
+  const para1 = `The No Prep category is tailored for impromptu problem-solving, emphasizing quick thinking and adaptability. With minimal prior preparation required, these challenges test participants' ability to innovate and execute on the spot. Details include:`
+  const list = `
+    <div><strong>Points:</strong> 150</div>
+    <div><strong>Team Size:</strong> 2</div>
+    <div><strong>Time to Solve:</strong> NA </div>
+  `
+  
+  const para2 = `  High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
+    to tackle intensive projects.`
+  
+
   return (
     <div className="preppage">
-      <Heading title={title} icon={image2} />
+      <Heading title={title} icon={image2} para1={para1} list={list} para2={para2}/>
       <div className="mp-cards-container">
         {filteredProblemStatements.length > 0 ? (
           filteredProblemStatements.map((card, index) => (

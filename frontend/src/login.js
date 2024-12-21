@@ -12,7 +12,7 @@ const LoginForm = ({ setUserLoggedIn }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axios.post('https://kritibackend.vercel.app/api/auth/login', { email, password });
       localStorage.setItem('userToken', response.data.token);
       alert('Login successful!');
       setUserLoggedIn(true); // Pass `true` indicating user is logged in

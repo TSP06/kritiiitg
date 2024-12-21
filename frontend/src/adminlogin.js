@@ -9,7 +9,7 @@ const AdminLoginForm = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        'https://kritibackend.vercel.app/api/auth/login',
         { email, password, role: 'admin' }, // Include role in the payload
         {
           headers: {

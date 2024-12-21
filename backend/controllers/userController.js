@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key';
+const JWT_SECRET =  'tanu';
 
 // Add user
 exports.addUser = async (req, res) => {
@@ -34,6 +34,7 @@ exports.loginUser = async (req, res) => {
     const { email, password,role } = req.body;
 
     const user = await User.findOne({ email });
+    console.log(user);
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }

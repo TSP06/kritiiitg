@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(cors()); // This allows all origins (use more restrictive rules for production)
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://Tanu:Tanu060105@kriti.k10ov.mongodb.net/?retryWrites=true&w=majority&appName=Kriti")
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.log(err));
   app.get('/', (req, res) => {

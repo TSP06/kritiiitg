@@ -15,7 +15,7 @@ const AddUserForm = () => {
     try {
       const token = localStorage.getItem('token'); // Authorization token
       const response = await axios.post(
-        'https://kritibackend.vercel.app/api/auth/admin/add-user',
+        'http://localhost:5000/api/auth/admin/add-user',
         { name, email, password, role },
         {
           headers: {
@@ -41,7 +41,7 @@ const AddUserForm = () => {
       const token = localStorage.getItem('token'); // Authorization token
 
       const response = await axios.delete(
-        `https://kritibackend.vercel.app/api/auth/admin/delete-user/${userIdToDelete}`,
+        `https://localhost:5000/api/auth/admin/delete-user/${userIdToDelete}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

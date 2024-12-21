@@ -1,7 +1,16 @@
 /* LoginForm.css */
+
+
+
+.loginBody{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
 .login-container {
   margin-bottom:100px;
   margin-top:100px;
+  
   display: flex;
   flex-direction:column;
   justify-content:space-around;
@@ -10,12 +19,15 @@
   padding: 24px 38px;
   align-items: center;
   gap: 10px;
+  
   flex-shrink: 0;
   border-radius: 10.483px;
 border: 1px solid #646464;
 background: linear-gradient(134deg, rgba(255, 255, 255, 0.23) -21.19%, rgba(255, 255, 255, 0.00) 101.37%);
 backdrop-filter: blur(75.55914306640625px);
 z-index:100;
+
+
   }
 .logintitle{
  

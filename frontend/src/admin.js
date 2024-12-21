@@ -16,7 +16,7 @@ const AdminPage = () => {
     }
 
     axios
-      .get('https://kritibackend.vercel.app/api/users', {
+      .get('https://localhost:5000/api/users', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -42,7 +42,7 @@ const AdminPage = () => {
   const handleDeleteUser = (userId) => {
     const token = localStorage.getItem('token');
     axios
-      .delete(`https://kritibackend.vercel.app/api/users/${userId}`, {
+      .delete(`https://localhost:5000/api/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {

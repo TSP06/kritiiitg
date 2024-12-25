@@ -331,6 +331,7 @@ console.log(userName)
   
 */
   return (
+    <div className="registerContainer">
     <div className="registercomponent">
       <div className="registertitle">
   
@@ -450,6 +451,7 @@ console.log(userName)
         </button>
       </form>
       </div>
+    </div>
     </div>
   );
 };

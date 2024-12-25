@@ -4,107 +4,142 @@ body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a; /* Dark background */
     color: #ffffff; /* Text color */
-  }
-  
-  .faq-container {
-    height:100vh;
-    padding: 30px;
+}
+
+.faq-container {
+    height: auto; /* Allow height to adjust dynamically */
+    padding: 20px; /* Reduced padding for smaller screens */
     max-width: 90%;
     margin: 0 auto;
-    margin-top:20px;
-    
-  }
-  
-  .faq-container h1 {
+    margin-top: 20px;
+}
+
+.faq-container h1 {
     font-size: 2rem;
-    margin-bottom: 50px; /* Increased gap between heading and first FAQ */
+    margin-bottom: 30px; /* Better spacing for smaller screens */
     text-align: center;
-  }
-  
-  .faq-item {
+    word-wrap: break-word;
+}
+
+.faq-item {
     background: linear-gradient(134deg, rgba(255, 255, 255, 0.23) -21.19%, rgba(255, 255, 255, 0) 101.37%);
     backdrop-filter: blur(20px);
-    margin: 30px 0; /* Increased gap between different FAQs */
+    margin: 20px 0; /* Adjusted margin for better spacing */
     padding: 15px;
-    border-radius: 13px;
+    border-radius: 10px; /* Slightly smaller radius */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .faq-item:hover {
+}
+
+.faq-item:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .faq-question {
+}
+
+.faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-  }
   
-  .faq-question p {
+}
+
+.faq-question p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Smaller text for mobile readability */
     line-height: 1.5;
-  }
-  
-  .icon {
+}
+
+.icon {
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 1);
     transition: transform 0.2s;
-  }
-  
-  .icon:hover {
+}
+
+.icon:hover {
     transform: scale(1.2);
-  }
+}
+
+.faq-answer {
   
-  .faq-answer {
-    margin-top: 10px;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 1);
-    border-left: 3px solid rgba(255, 255, 255, 1);
-    padding-left: 10px;
-    animation: fadeIn 0.3s ease-in-out;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
+  width: 100%; /* Ensure the answer spans the container width */
+  display: block; /* Block-level display for proper wrapping */
+  word-wrap: break-word; /* Break long words if necessary */
+  white-space: normal; /* Allow wrapping */
+  margin-top: 10px;
+  font-size: 0.95rem; /* Slightly smaller font for answers */
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9); /* Slightly dimmed for visual hierarchy */
+  border-left: 3px solid rgba(255, 255, 255, 1);
+  padding-left: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .faq-container {
-      padding: 20px;
+        padding: 15px; /* Reduced padding */
     }
-  
+
     .faq-container h1 {
-      font-size: 1.5rem;
+        font-size: 1.8rem; /* Smaller heading */
     }
-  
+
     .faq-item {
-      padding: 10px;
+        padding: 10px;
     }
-  
+
     .faq-question p {
-      font-size: 1rem;
+        font-size: 0.95rem; /* Smaller text for questions */
     }
-  
+
     .faq-answer {
-      font-size: 0.9rem;
+        font-size: 0.85rem;
+       
     }
-  
+
     .icon {
-      font-size: 1.2rem;
+        font-size: 1.2rem; /* Slightly smaller icons */
     }
-  }
-  
-  /* Fade-in animation for answers */
-  @keyframes fadeIn {
+}
+
+@media (max-width: 480px) {
+    .faq-container {
+        padding: 10px;
+    }
+
+    .faq-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        padding: 10px;
+    }
+
+    .faq-question p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .faq-answer {
+        font-size: 0.8rem; /* Optimize for smallest screens */
+    }
+
+    .icon {
+        font-size: 1rem;
+    }
+}
+
+/* Fade-in animation for answers */
+@keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(-10px);
+        opacity: 0;
+        transform: translateY(-10px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
+}

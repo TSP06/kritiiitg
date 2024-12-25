@@ -91,7 +91,7 @@ function Navbar({ userLoggedIn, setUserLoggedIn, pendingSection, setPendingSecti
             Problem Statements
           </div>
           <div  className="nav-item" id="discord">
-          <a href="">Discord</a>  
+          <a href="https://discord.gg/cjaZpVnS" target="_blank">Discord</a>  
           </div>
           <div className="faqt" onClick={() => handleNavigation("faqs")}>
             FAQs

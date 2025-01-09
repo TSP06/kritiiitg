@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AdminLoginForm = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');  // Changed to username
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
@@ -10,7 +10,7 @@ const AdminLoginForm = () => {
     try {
       const response = await axios.post(
         'https://kritibackend.onrender.com/api/auth/login',
-        { email, password, role: 'admin' }, // Include role in the payload
+        { username, password, role: 'admin' }, // Include role in the payload
         {
           headers: {
             'Content-Type': 'application/json', // Set appropriate headers
@@ -31,10 +31,10 @@ const AdminLoginForm = () => {
     <form onSubmit={handleSubmit} style={{ maxWidth: '300px', margin: 'auto' }}>
       <h2>Admin Login</h2>
       <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Admin Email"
+        type="text"  // Changed to text for username
+        value={username}  // Changed to username
+        onChange={(e) => setUsername(e.target.value)}  // Updated to handle username input
+        placeholder="Admin Username"
         required
         style={{
           width: '100%',

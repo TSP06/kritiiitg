@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 // Enable CORS for all routes
-app.use(cors({ origin: 'https://kriti25.vercel.app', credentials: true })); // This allows all origins (use more restrictive rules for production)
+app.use(cors({ origin: '*', credentials: true })); // This allows all origins (use more restrictive rules for production)
 
 // Connect to MongoDB
 mongoose.connect("mongodb+srv://Tanu:Tanu060105@kriti.k10ov.mongodb.net/?retryWrites=true&w=majority&appName=Kriti")

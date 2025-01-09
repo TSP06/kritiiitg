@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AddUserForm = () => {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState(''); // renamed to 'username'
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('user'); // default role is 'user'
   const [message, setMessage] = useState('');
@@ -16,7 +16,7 @@ const AddUserForm = () => {
       const token = localStorage.getItem('token'); // Authorization token
       const response = await axios.post(
         'https://kritibackend.onrender.com/api/auth/admin/add-user',
-        { name, email, password, role },
+        { name, username, password, role },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -26,12 +26,11 @@ const AddUserForm = () => {
       setMessage(response.data.message);
       // Clear form fields after successful submission
       setName('');
-      setEmail('');
+      setUsername(''); // reset username
       setPassword('');
       setRole('user');
     } catch (error) {
       setMessage(error.response?.data?.message || 'Something went wrong');
-
     }
   };
 
@@ -71,11 +70,11 @@ const AddUserForm = () => {
           />
         </div>
         <div style={{ marginBottom: '10px' }}>
-          <label>Email:</label>
+          <label>User Name:</label>
           <input
             type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} // updated to 'username'
             required
             style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
           />
@@ -113,7 +112,7 @@ const AddUserForm = () => {
       <h2>Delete User</h2>
       <form onSubmit={handleDeleteUser}>
         <div style={{ marginBottom: '10px' }}>
-          <label>User ID or Email:</label>
+          <label>User ID or Username:</label> {/* changed email label to 'Username' */}
           <input
             type="text"
             value={userIdToDelete}

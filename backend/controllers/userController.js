@@ -1,29 +1,28 @@
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
-const JWT_SECRET =  'tanu';
+const JWT_SECRET = 'tanu';
 
 // Add user
 exports.addUser = async (req, res) => {
   try {
-    const { name,email, password,role } = req.body;
+    const { name, username, password, role } = req.body;
 
-    // Check if the email already exists
-    const existingUser = await User.findOne({ email });
+    // Check if the username already exists
+    const existingUser = await User.findOne({ username });
     if (existingUser) {
-      return res.status(400).json({ message: 'Email already in use' });
+      return res.status(400).json({ message: 'Username already in use' });
     }
 
-      // Prevent creating admin accounts via public routes
-      
+    // Prevent creating admin accounts via public routes
 
     // Create a new user instance and save to the database
-    const user = new User({ name,email, password,role });
+    const user = new User({ name, username, password, role });
     await user.save();
 
     res.status(201).json({ message: 'User added successfully!' });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({ error: error.message });
   }
 };
@@ -31,16 +30,16 @@ exports.addUser = async (req, res) => {
 // Login user
 exports.loginUser = async (req, res) => {
   try {
-    const { email, password,role } = req.body;
+    const { username, password } = req.body;
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     console.log(user);
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
-    
+
     const token = jwt.sign(
-      { id: user._id, role: user.role,name: user.name },
+      { id: user._id, role: user.role, name: user.name },
       process.env.JWT_SECRET,
       { expiresIn: '1hr' }
     );

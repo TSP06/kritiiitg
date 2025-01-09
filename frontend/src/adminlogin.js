@@ -13,7 +13,8 @@ const AdminLoginForm = () => {
         { username, password, role: 'admin' }, // Include role in the payload
         {
           headers: {
-            'Content-Type': 'application/json', // Set appropriate headers
+            'Content-Type': 'application/json',
+            withCredentials: true, // Set appropriate headers
           },
         }
       );

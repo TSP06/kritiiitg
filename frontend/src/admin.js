@@ -13,9 +13,9 @@ const AdminPage = () => {
       console.log('No token found. Redirecting to /adminlogin...');
       navigate('/adminlogin'); // Correct usage
       return;
-    }
+    }})
 
-    axios
+  /*  axios
       .get('https://kritibackend.onrender.com/api/users', {
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -31,7 +31,7 @@ const AdminPage = () => {
         }
       });
   }, [navigate]);
-
+*/
   const handleLogout = () => {
     console.log('Logging out...');
     localStorage.removeItem('token');
@@ -61,14 +61,7 @@ const AdminPage = () => {
       <button onClick={handleLogout}>Logout</button>
 
       <h2>All Users</h2>
-      <ul>
-        {users.map((user) => (
-          <li key={user._id}>
-            {user.email} - {user.role}
-            <button onClick={() => handleDeleteUser(user._id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+     
 
       <h2>Manage Users</h2>
       <AddUserForm />

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './footer.css';
 import rulebook from "./assets/rulebook.pdf";
+import kritilogo from "./assets/KRITI logo.png"
 const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
     const navigate = useNavigate();
 
@@ -59,14 +60,18 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
     return (
         <footer className="footer-content">
             <div className="left-content">
-            <div className="left-top">
+            
           <div className="kriti">
-            <div className="k">Kriti</div>
-            <div className="ed">
-              <div>13th</div> <div>Edition</div>
-            </div>
+           <div>
+            <a href="/">
+            <img className="footerlogo" src={kritilogo}>
+            </img>
+            </a>
+           </div>
           </div>
-          {userLoggedIn  ? (
+         
+      
+        {userLoggedIn  ? (
             <button className="nav-login-button" onClick={handleLogout}>
               Logout
             </button>
@@ -75,9 +80,8 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
               Login
             </button>
           )}
-        </div>
         <div className="left-bottom">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://www.instagram.com/techboard.iitg/" target="_blank" rel="noopener noreferrer" className="social-icon">
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0,0,256,256">
               <g
                 fill="#ffffff"
@@ -100,7 +104,7 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
               </g>
             </svg>
           </a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://x.com/techboard_iitg" target="_blank" rel="noopener noreferrer" className="social-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 16 16">
               <path
                 fill="#fff"
@@ -108,7 +112,7 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
               />
             </svg>
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+          <a href="https://www.linkedin.com/company/techboard-iitg/?originalSubdomain=in" className="social-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
               <path
                 fill="#fff"

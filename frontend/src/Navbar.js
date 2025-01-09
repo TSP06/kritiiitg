@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Kritilogo from "./assets/Kritilogo.png";
 import "./Navbar.css";
+import rulebook from "./assets/rulebook.pdf";
+
 
 function Navbar({ userLoggedIn, setUserLoggedIn, pendingSection, setPendingSection }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,8 +26,8 @@ function Navbar({ userLoggedIn, setUserLoggedIn, pendingSection, setPendingSecti
 
   const downloadGuidelines = () => {
     const link = document.createElement("a");
-    link.href = "/assets/guidelines.pdf";
-    link.download = "Guidelines.pdf";
+    link.href = rulebook;
+    link.download = "Rulebook.pdf";
     link.click();
   };
 
@@ -85,13 +87,17 @@ function Navbar({ userLoggedIn, setUserLoggedIn, pendingSection, setPendingSecti
             Announcements
           </div>
           <div className="nav-item" onClick={downloadGuidelines}>
-            Guidelines
+            Rulebook
           </div>
-          <div className="nav-item" onClick={() => handleNavigation("problem-statements")}>
-            Problem Statements
+          <div className="nav-item dropdown">
+            <span onClick={() => handleNavigation("problem-statements")}>Problem Statements</span>
+            <div className="dropdown-content">
+              <a href="https://kriti2024.onrender.com/" >PS 23-24</a>
+              <a href="https://drive.google.com/drive/folders/1qBF5aQ8WuPULp_vk9dxf7QFH17o-BmdD" >PS 22-23</a>
+            </div>
           </div>
           <div  className="nav-item" id="discord">
-          <a href="https://discord.gg/cjaZpVnS" target="_blank">Discord</a>  
+          <a href="https://discord.gg/dDDCW7pJHV" target="_blank">Discord</a>  
           </div>
           <div className="faqt" onClick={() => handleNavigation("faqs")}>
             FAQs

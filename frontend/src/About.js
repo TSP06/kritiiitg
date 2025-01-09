@@ -1,99 +1,70 @@
-import React from 'react'
-import {useRef,useEffect} from 'react'
-import './about.css'
-import Frame19 from './assets/Frame 19.png'
-import Frame20 from './assets/Frame 20.png'
-import Frame6 from './assets/Frame 6.png'
-import Frame7 from './assets/Frame 7.png'
-import Union1 from './assets/Union (1).png'
-import Union2 from './assets/Union (2).png'
-
-import img1 from './assets/1000122074.jpg'
-import img2 from './assets/1000122075.jpg'
-
-import img3 from './assets/1000122077.jpg'
-import img4 from './assets/1000122078.jpg'
-import img5 from './assets/1000122079.jpg'
-import img6 from './assets/1000122080.jpg'
-import img7 from './assets/1000122081.jpg'
-import { GoDotFill } from "react-icons/go";
+import React, { useRef, useEffect, useState } from 'react';
+import './about.css';
+import Kritilogo from './assets/KRITI logo.png';
+import img1 from './assets/img1.jpeg';
+import img2 from './assets/img2.jpeg';
+import img3 from './assets/img3.jpeg';
+import img4 from './assets/img4.jpeg';
+import img5 from './assets/img5.jpg';
 
 export default function About() {
-    const images = [img1,img2,img3,img4,img5,img6,img7];
+    const images = [img1, img2, img3, img4, img5];
 
     const scrollContainerRef = useRef(null);
+    const [scrollAmount, setScrollAmount] = useState(0); // Track the scrolling offset
+
+    const scrollSmoothly = () => {
+        const container = scrollContainerRef.current;
+        if (container) {
+            setScrollAmount(prev => prev + 1);
+            container.scrollLeft = scrollAmount;
+
+            if (scrollAmount >= container.scrollWidth / 2) {
+                setScrollAmount(0); // Reset back to the start after half the total width is scrolled
+            }
+        }
+    };
 
     useEffect(() => {
-        const container = scrollContainerRef.current;
-        let scrollAmount = 0;
+        const interval = setInterval(scrollSmoothly, 10); // Adjust interval speed as needed
 
-        const scroll = () => {
-            scrollAmount += 1; // Scroll pixels at a time
-            if (container) {
-                container.scrollLeft = scrollAmount;
-                if (scrollAmount >= container.scrollWidth - container.clientWidth) {
-                    scrollAmount = 0; // Reset scroll
-                }
-            }
-        };
-
-        const interval = setInterval(scroll, 10); // Adjust interval speed as needed
-        return () => clearInterval(interval);
-    }, []);
-
+        return () => clearInterval(interval); // Clear the interval on component unmount
+    }, [scrollAmount]);
 
     return (
         <>
             <div className="container">
-                <div className="bgcolor">
+                <div className="bgcolor"></div>
+                <div className="leftright">
+                    <div className="left">
+                        <div className="big_heading">
+                            <h4>Welcome to</h4>
+                            <h2>The Ultimate Tech Battle</h2>
+                        </div>
+                        <div className="desc">
+                            Greetings, innovators and tech enthusiasts of IIT Guwahati! We’re excited to introduce Kriti, the grand inter-hostel technical competition that showcases the spirit of innovation, collaboration, and technical brilliance.
+                            This year, Kriti invites you to a journey across cutting-edge technologies and diverse domains, where hostels compete to claim their title as the ultimate tech powerhouse. From AI/ML and blockchain to aeromodelling, robotics, and beyond, Kriti is the stage where talent meets opportunity.
+                        </div>
+                    </div>
 
-                </div>
-                <div className="left">
-                   
-                    <div className="big_heading">
-                  <h4>  Welcome to </h4>
-                 
-                  <h2>The Ultimate Tech Battle</h2>  
-                    </div>
-                    <div className="desc">
-                    Greetings, innovators and tech enthusiasts of IIT Guwahati! We’re excited to introduce Kriti, the grand inter-hostel technical competition that showcases the spirit of innovation, collaboration, and technical brilliance.
-This year, Kriti invites you to a journey across cutting-edge technologies and diverse domains, where hostels compete to claim their title as the ultimate tech powerhouse. From AI/ML and blockchain to aeromodelling, robotics, and beyond, Kriti is the stage where talent meets opportunity.
-
-                    </div>
-                </div>
-                {/* 
-                <div className="right">
-                    {/* <div className="top_rectangle">
-                        <img src={Frame19} className='Frame19' alt="no_preview" />
-                        <img src={Frame6} className='Frame6' alt="no_preview" />
-                    </div>
-                    <div className="below_rectangle">
-                        <img src={Frame20} className='Frame20' alt="no_preview" />
-                        <img src={Frame7} className='Frame7' alt="no_preview" />
-                    </div> 
-                    <div className="imgcontainer">
-                    <img src={Frame19} className='Frame19' alt="no_preview" />
-                  
-                    
-                    <img src={Frame7} className='Frame7' alt="no_preview" />
-                    <img src={Union1} className='Union1' alt="no_preview" />
-                    <img src={Union2} className='Union' alt="no_preview" />
+                    <div className="right">
+                        <div className="rightimg">
+                            <img src={Kritilogo} className="kritilogoimg" alt="Kriti Logo" />
+                        </div>
                     </div>
                 </div>
-                */}
-
-               
             </div>
 
-            <div className="imgscrollcontainer"  ref={scrollContainerRef}>
-                {images.map((image, index) => (
-                        <div className="imgCard" key={index}>
-                            <img src={image} alt={`Frame ${index + 1}`} />
-                        </div>
-                    ))}
+            <div className="imgscrollcontainer" ref={scrollContainerRef}>
+                {/* Duplicate images to make smooth, continuous scroll */}
+                {[...images, ...images].map((image, index) => (
+                    <div className="imgCard" key={index}>
+                        <img src={image} alt={`Image ${index + 1}`} />
+                    </div>
+                ))}
+            </div>
 
-                </div>
-            <div className="white-line"></div> {/* The white line */}
+            <div className="white-line"></div>
         </>
-    )
+    );
 }

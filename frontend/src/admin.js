@@ -16,7 +16,7 @@ const AdminPage = () => {
     }
 
     axios
-      .get('https://localhost:5000/api/users', {
+      .get('https://kritibackend.onrender.com/api/users', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
@@ -42,7 +42,7 @@ const AdminPage = () => {
   const handleDeleteUser = (userId) => {
     const token = localStorage.getItem('token');
     axios
-      .delete(`https://localhost:5000/api/users/${userId}`, {
+      .delete(`https://kritibackend.onrender.com/api/users/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(() => {

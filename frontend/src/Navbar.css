@@ -26,6 +26,43 @@
   align-items: center;
   gap: 2rem;
 }
+/* Other existing styles... */
+
+.nav-item.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-item.dropdown:hover .dropdown-content {
+  display: block; /* Show the dropdown on hover */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+
+top:30px;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size:1rem;
+}
+
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .nav-item {
   display: flex;
@@ -108,7 +145,8 @@
     padding: 1rem;
     gap: 1rem;
     z-index:30;
-    opacity:0.45;
+    opacity:0.8;
+   
   }
 
   .nav-element.open {
@@ -118,8 +156,12 @@
   .nav-item {
     font-size: 1rem;
     padding: 0.5rem 0;
+    
   }
-
+.dropdown-content{
+  background:rgba(0, 0, 0, 0.80);
+}
+  
   .nav-login-button {
     display: flex;
   }

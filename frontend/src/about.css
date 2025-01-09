@@ -8,13 +8,18 @@
 .container{
     
   /* height: 100vh;*/
+
     padding: 5% 5%  5%;
     display: flex;
     column-gap: 10px;
     position: relative; /* Added position relative to contain the absolutely positioned elements */
     overflow: hidden; /* Ensure anything outside the container is hidden */
 }
+.leftright{
 
+    display:flex;
+   
+}
 .bgcolor{
    
     position: absolute;
@@ -32,21 +37,43 @@
 }
 
 .left{
-    width: 100%;
+    width:65%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 25px;
     padding: 10px;
+
+
   
 }
 
 .right{
-    width: 45%;
+    width: 50%;
     height: 100%;
-    
+    display:flex;
+    justify-content: center;
+    align-items:center;
+   
+
     
 }
+
+.kritilogoimg{
+    width:100%;
+
+}
+
+
+.rightimg{
+    width:100%;
+
+ margin-top:25%;
+
+  
+}
+
+
 
 .about_kriti{
    font-family: "Rethink Sans", sans-serif;
@@ -199,6 +226,7 @@ align-items:center;
         width: 100%;
        
         left: 0;
+        justify-content: flex-start;
     }
     .big_heading{
         font-size: 40px;
@@ -206,8 +234,17 @@ align-items:center;
     .desc{
         width: 100%;
     }
-}
 
+    .leftright{
+        flex-wrap:wrap-reverse;
+    }
+}
+.rightimg{
+    margin-top:0;
+    width:70%;
+    
+
+}
 .white-line {
     width: 100%;
     height: 2px;
@@ -224,6 +261,16 @@ align-items:center;
     width:300px;
     height:200px;
 
+}
+.leftright{
+    flex-wrap:wrap-reverse;
+}
+.right{
+    justify-content: flex-start;
+}
+.rightimg{
+    margin-top:0;
+    width:70%;
 }
     .big_heading{
         font-size: 30px;

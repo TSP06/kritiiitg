@@ -245,7 +245,7 @@ console.log(userName)
   
     try {
         console.log('trying')
-      const response = await axios.post('http://localhost:5000/api/register', 
+      const response = await axios.post('https://kritibackend.onrender.com/api/register', 
         {newRegistartion} // Ensure this is defined correctly elsewhere
       );
   console.log("tried");

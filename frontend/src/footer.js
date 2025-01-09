@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './footer.css';
-
+import rulebook from "./assets/rulebook.pdf";
 const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
     const navigate = useNavigate();
 
@@ -11,8 +11,8 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
 
     const downloadGuidelines = () => {
         const link = document.createElement("a");
-        link.href = "/assets/guidelines.pdf";
-        link.download = "Guidelines.pdf";
+        link.href = rulebook;
+        link.download = "Rulebook.pdf";
         link.click();
     };
 
@@ -125,7 +125,7 @@ const Footer = ({ userLoggedIn, setUserLoggedIn }) => {
                     <div className="footeritems" onClick={() => handleNavigation('faqs')}>FAQ</div>
                     <div className="footeritems" onClick={() => handleNavigation('problem-statements')}>Problem Statements</div>
                     <div className="footeritems" onClick={downloadGuidelines}>
-                        Guidelines
+                        Rulebook
                     </div>
                     <div className="footeritems">
                         <a href="mailto:contact@kriti.com">Contact Us</a>

@@ -66,6 +66,7 @@ const para2 = `  High Prep problem statements are a perfect opportunity for team
         postedBy,
         pdfFile { asset->{url} },  // Get the pdf URL
         readyToSubmit,
+        readyToRegister,
         submittingLink
       }`;
       try {
@@ -111,6 +112,7 @@ const para2 = `  High Prep problem statements are a perfect opportunity for team
               submittingLink={card.submittingLink}
               pdfFile={card.pdfFile?.asset?.url} // Send the URL for the PDF file
               readyToSubmit={card.readyToSubmit}
+              readyToRegister={card.readyToRegister}
             />
           ))
         ) : (

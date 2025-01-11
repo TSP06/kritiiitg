@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './Card1.css';
 
 const Card = ({
@@ -12,22 +12,24 @@ const Card = ({
   category,
   submittingLink,
   pdfFile,
-  readyToSubmit
+  readyToSubmit,
+  readyToRegister,
 }) => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
+  console.log(readyToRegister);
+  console.log(readyToSubmit);
   // Function to format the deadline
   const formatDeadline = (deadline) => {
     const date = new Date(deadline);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = date.toLocaleDateString(undefined, options); // Formats date in "Month Day, Year"
-    
+    const formattedDate = date.toLocaleDateString(undefined, options);
+
     const timeOptions = { hour: 'numeric', minute: 'numeric', hour12: true };
-    const formattedTime = date.toLocaleTimeString(undefined, timeOptions); // Formats time in "hh:mm AM/PM"
-  
-    return `${formattedDate}, ${formattedTime}`; // Combines date and time
+    const formattedTime = date.toLocaleTimeString(undefined, timeOptions);
+
+    return `${formattedDate}, ${formattedTime}`;
   };
-  
 
   // Handle button click to navigate to register page with PS name and category
   const handleButtonClick = () => {
@@ -47,7 +49,7 @@ const Card = ({
   // Handle redirection for the 'Submit' button
   const handleSubmitClick = () => {
     if (readyToSubmit && submittingLink) {
-      window.location.href = submittingLink; // Redirect to the submitting link
+      window.location.href = submittingLink;
     }
   };
 
@@ -55,33 +57,46 @@ const Card = ({
     <div className="card1">
       <div className="card1top">
         <h2>{title}</h2>
-        <button className="card1btnicon" >
+        <button className="card1btnicon">
           <a href={pdfFile} target="_blank" rel="noopener noreferrer" download>
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+            >
               <path
                 fill="#fff"
                 d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
               />
             </svg>
-          </a> 
+          </a>
         </button>
       </div>
       <p>{description1}</p>
-      <p>{description2 && description2.includes('Deadline:')
+      <p>
+        {description2 && description2.includes('Deadline:')
           ? description2.replace(
               /Deadline: .*/,
               `Deadline: ${formatDeadline(description2.split(': ')[1])}`
             )
-          : description2
-      }</p>
+          : description2}
+      </p>
 
-      {/* Show button text only if user is logged in */}
-      {userLoggedIn ? (
-        <button className="card-button1" onClick={readyToSubmit ? handleSubmitClick : handleButtonClick}>
-          {readyToSubmit ? 'Submit' : buttonText}
-        </button>
-      ) : (
-        null // Don't render anything if not logged in
+      {/* Conditional rendering based on userLoggedIn, readyToRegister, and readyToSubmit */}
+      {userLoggedIn && (
+        <>
+          {readyToRegister && (
+            <button className="card-button1" onClick={handleButtonClick}>
+              {buttonText}
+            </button>
+          )}
+          {readyToSubmit && (
+            <button className="card-button1" onClick={handleSubmitClick}>
+              Submit
+            </button>
+          )}
+        </>
       )}
     </div>
   );

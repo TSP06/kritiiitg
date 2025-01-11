@@ -47,6 +47,13 @@ export default {
       },
     },
     {
+      name: 'readyToRegister',
+      type: 'boolean',
+      title: 'Ready to Register',
+      description: 'Indicates whether the problem statement is ready to be registered or not',
+      initialValue: false, // Optional: Defaults to false
+    },
+    {
       name: 'readyToSubmit',
       type: 'boolean',
       title: 'Ready to Submit',

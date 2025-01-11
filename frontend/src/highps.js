@@ -28,6 +28,7 @@ const MPCards = ({ userLoggedIn }) => {
       postedBy,
       pdfFile { asset->{url} },  // Get the pdf URL
       readyToSubmit,
+      readyToRegister,
       submittingLink
     }`;
     try {
@@ -55,6 +56,7 @@ const filteredProblemStatements = problemStatements.filter(
   (ps) => ps.category === 'high_prep'
 );
 
+console.log(filteredProblemStatements[0]);
   const mpcard = [
     {
       title: 'Software Development',
@@ -125,6 +127,7 @@ const filteredProblemStatements = problemStatements.filter(
               category="highprep"
               submittingLink={card.submittingLink}
               pdfFile={card.pdfFile?.asset?.url} // Send the URL for the PDF file
+              readyToRegister={card.readyToRegister}
               readyToSubmit={card.readyToSubmit}
             />
           ))

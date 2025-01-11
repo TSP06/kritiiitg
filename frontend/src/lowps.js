@@ -68,6 +68,7 @@ const MPCards = (userLoggedIn
         postedBy,
         pdfFile { asset->{url} },  // Get the pdf URL
         readyToSubmit,
+        readyToRegister,
         submittingLink
       }`;
       try {
@@ -113,6 +114,7 @@ const MPCards = (userLoggedIn
               submittingLink={card.submittingLink}
               pdfFile={card.pdfFile?.asset?.url} // Send the URL for the PDF file
               readyToSubmit={card.readyToSubmit}
+              readyToRegister={card.readyToRegister}
             />
           ))
         ) : (

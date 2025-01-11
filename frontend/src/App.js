@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./Navbar";
 import About from "./About";
 import Footer from "./footer";
@@ -18,56 +18,33 @@ import Register from "./register";
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [adminLoggedIn, setAdminLoggedIn] = useState(false);
-  const [currentSection, setCurrentSection] = useState("/");
 
-  // Define the mapping for section IDs to their corresponding routes
-  const sectionRouteMap = [
-    { id: "about", route: "/" },
-    { id: "announcement", route: "/#announcement" },
-    { id: "problem-statements", route: "/#pspage" },
-    { id: "faqs", route: "/#faq" },
-  ];
+  // Check login state on app load
+  useEffect(() => {
+    const userToken = localStorage.getItem("userToken");
+    const isAdminLoggedIn = localStorage.getItem("adminToken");
 
- /* const ResetRouteOnHome = () => {
-    const location = useLocation();
-    const navigate = useNavigate();
+    if (userToken) {
+      setUserLoggedIn(true);
+    }
 
-   useEffect(() => {
-      // When navigating to the home page, reset the route to "/"
-      if (location.pathname === "/" || location.hash) {
-        window.scrollTo(0, 0); // Scroll to the top
-        navigate("/"); // Reset route to "/"
-        setCurrentSection("/"); // Reset the section state
-      }
-    }, [location.pathname, location.hash, navigate]);
+    if (isAdminLoggedIn) {
+      setAdminLoggedIn(true);
+    }
+  }, []);
 
-    return null;
+  // Handle user logout
+  const handleLogout = () => {
+    localStorage.removeItem("userToken");
+    setUserLoggedIn(false);
   };
-*/
-/*  useEffect(() => {
-    const observerCallback = (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          const visibleRoute = sectionRouteMap.find(
-            (section) => section.id === entry.target.id
-          )?.route;
-          if (visibleRoute && visibleRoute !== currentSection) {
-            setCurrentSection(visibleRoute);
-            window.history.replaceState(null, "", visibleRoute); // Update the URL without refreshing
-          }
-        }
-      }
-    };
-*/
-  /*  const observer = new IntersectionObserver(observerCallback, { threshold: 0.6 }); // 60% visibility
-    sectionRouteMap.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
 
-    return () => observer.disconnect();
-  }, [currentSection]);// Dependency on currentSection
-*/
+  // Handle admin logout
+  const handleAdminLogout = () => {
+    localStorage.removeItem("adminToken");
+    setAdminLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <Router>
@@ -76,7 +53,8 @@ function App() {
           adminLoggedIn={adminLoggedIn}
           setUserLoggedIn={setUserLoggedIn}
           setAdminLoggedIn={setAdminLoggedIn}
-          
+          handleLogout={handleLogout}
+          handleAdminLogout={handleAdminLogout}
         />
         <Routes>
           {/* Admin Routes */}
@@ -86,15 +64,26 @@ function App() {
           />
           <Route
             path="/adminlogin"
-            element={<AdminLoginForm userLoggedIn={userLoggedIn} adminLoggedIn={adminLoggedIn} />}
+            element={
+              <AdminLoginForm
+                userLoggedIn={userLoggedIn}
+                setAdminLoggedIn={setAdminLoggedIn}
+                adminLoggedIn={adminLoggedIn}
+              />
+            }
           />
 
           {/* User Routes */}
-          <Route path="/register/:title/:category" element={<Register />} />
           <Route
             path="/login"
-            element={<Login userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />}
+            element={
+              <Login
+                userLoggedIn={userLoggedIn}
+                setUserLoggedIn={setUserLoggedIn}
+              />
+            }
           />
+          <Route path="/register/:title/:category" element={<Register />} />
 
           {/* Scrollable Sections */}
           <Route
@@ -107,7 +96,7 @@ function App() {
                 <div id="announcement">
                   <Announcement />
                 </div>
-                <div >
+                <div>
                   <PsPage />
                 </div>
                 <div id="faqs">
@@ -123,8 +112,7 @@ function App() {
           <Route path="/lowps" element={<LowPsPage userLoggedIn={userLoggedIn} />} />
           <Route path="/noprepps" element={<NoPrepPsPage userLoggedIn={userLoggedIn} />} />
         </Routes>
-
-        <Footer userLoggedIn={userLoggedIn} setUserLoggedIn={setUserLoggedIn} />
+        <Footer />
       </Router>
     </div>
   );

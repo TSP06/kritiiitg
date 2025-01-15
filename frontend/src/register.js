@@ -68,6 +68,7 @@ const [registration, setRegistration] = useState(null);
         // Check if the user's role is 'user'
         if (decodedToken.role === 'user') {
           setUserName(decodedToken.name);  // Assuming 'name' is stored in the token
+          console.log(userName)
         } else {
           // Redirect to another page (e.g., login or homepage) if role is not user
           navigate('/login');  // Redirect to login if role is not 'user'
@@ -254,19 +255,24 @@ const [registration, setRegistration] = useState(null);
 
 
     useEffect(() => {
-    const fetchRegistration = async () => {
-      console.log(userName);
-      try {
-        const response = await axios.get(`https://kritibackend.onrender.com/api/registration/fetch/${newRegistration.title}/${title}`);
-        setRegistration(response.data.data);
-      } catch (err) {
-       console.log(err);
-        
-      }
-    };
+  const fetchRegistration = async () => {
+    console.log(userName);
+    try {
+      const response = await axios.get(
+        `https://kritibackend.onrender.com/api/registration/fetch/${encodeURIComponent(userName)}/${encodeURIComponent(title)}`
+      );
+      setRegistration(response.data?.data || []);
+    } catch (err) {
+      console.error("Error fetching registration data:", err);
+      setError("Failed to fetch registration data.");
+    }
+  };
 
+  if (userName && title) { // Only fetch if userName and title are valid
     fetchRegistration();
-  }, [userName, title]);
+  }
+}, [userName, title]);
+
 
   console.log(registration);
  const handleSubmit = async (e) => {

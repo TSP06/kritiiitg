@@ -264,7 +264,7 @@ const [registration, setRegistration] = useState(null);
       setRegistration(response.data?.data || []);
     } catch (err) {
       console.error("Error fetching registration data:", err);
-      setError("Failed to fetch registration data.");
+      
     }
   };
 

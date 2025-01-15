@@ -19,6 +19,22 @@ const [registration, setRegistration] = useState(null);
     noprep: 2,
   };
 
+  useEffect(() => {
+    const fetchRegistration = async () => {
+      try {
+        const response = await axios.get(`https://kritibackend.onrender.com/api/registration/${title}/${ps}`);
+        setRegistration(response.data.data);
+      } catch (err) {
+        setError(err.response?.data?.message || 'Error fetching registration details.');
+      }
+    };
+
+    fetchRegistration();
+  }, [title, ps]);
+
+
+  console.log(registration);
+
   const initialData = Array.from({ length: categoryParticipants[category] }, () => ({
     name: "",
     phoneNumber: "",

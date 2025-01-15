@@ -255,6 +255,7 @@ const [registration, setRegistration] = useState(null);
 
     useEffect(() => {
     const fetchRegistration = async () => {
+      console.log(userName);
       try {
         const response = await axios.get(`https://kritibackend.onrender.com/api/registration/${userName}/${title}`);
         setRegistration(response.data.data);

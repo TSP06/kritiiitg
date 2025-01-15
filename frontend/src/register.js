@@ -25,7 +25,8 @@ const [registration, setRegistration] = useState(null);
         const response = await axios.get(`https://kritibackend.onrender.com/api/registration/${title}/${ps}`);
         setRegistration(response.data.data);
       } catch (err) {
-        setError(err.response?.data?.message || 'Error fetching registration details.');
+       console.log(err);
+        
       }
     };
 

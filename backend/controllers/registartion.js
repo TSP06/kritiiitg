@@ -27,6 +27,19 @@ console.log(registration)
     }
   }
 };
+exports.fetchRegistrationByTitleAndPs = async (req, res) => {
+  const { title, ps } = req.params; // Extract title and ps from request parameters
+  try {
+    const registration = await Registration.findOne({ title, ps });
+    if (!registration) {
+      return res.status(404).json({ success: false, message: 'No registration found with the given title and ps.' });
+    }
+    res.status(200).json({ success: true, data: registration });
+  } catch (error) {
+    console.error('Error fetching registration:', error.message);
+    res.status(500).json({ success: false, message: 'Error fetching registration.' });
+  }
+};
 
 // Example usage
 

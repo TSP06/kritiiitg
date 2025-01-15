@@ -3,6 +3,6 @@ const router = express.Router();
 const {addRegistration, fetchRegistrationByTitleAndPs} = require('../controllers/registartion');
 
 router.post('/',addRegistration);
-router.get('registration/:title/:ps',fetchRegistrationByTitleAndPs);
+router.get('/:title/:ps',fetchRegistrationByTitleAndPs);
 
 module.exports = router;

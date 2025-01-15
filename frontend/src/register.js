@@ -397,7 +397,7 @@ console.log(userName)
       
       </div>
 
-  {registration:(alert("You have already registered")):(
+  {registration?(alert("You have already registered")):(
 <div className="registerformparent">
       <form onSubmit={handleSubmit} className="registerform">
         {Array.from({ length: numberOfMembers }).map((_, index) => (

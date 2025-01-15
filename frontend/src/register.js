@@ -21,7 +21,7 @@ const [registration, setRegistration] = useState(null);
 
 
 
-  console.log(registration);
+
 
   const initialData = Array.from({ length: categoryParticipants[category] }, () => ({
     name: "",
@@ -267,7 +267,7 @@ const [registration, setRegistration] = useState(null);
     fetchRegistration();
   }, [userName, title]);
 
-
+  console.log(registration);
  const handleSubmit = async (e) => {
     // Ensure setMembers is being used correctly in your component
 console.log(userName)

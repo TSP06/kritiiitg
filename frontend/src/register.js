@@ -396,6 +396,8 @@ console.log(userName)
           </p>
       
       </div>
+
+  {registration:(alert("You have already registered")):(
 <div className="registerformparent">
       <form onSubmit={handleSubmit} className="registerform">
         {Array.from({ length: numberOfMembers }).map((_, index) => (
@@ -513,6 +515,9 @@ console.log(userName)
         </button>
       </form>
       </div>
+          );
+            };
+            
     </div>
     </div>
   );

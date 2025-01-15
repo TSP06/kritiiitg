@@ -55,7 +55,8 @@ exports.addRegistration = async (req, res) => {
 };
 
 
- exports.fetchRegistrationByTitleAndPs(title, ps) {
+ exports.fetchRegistrationByTitleAndPs=async(req,title, ps,res) =>{
+   
   try {
     const registration = await Registration.findByTitleAndPs(title, ps);
     if (!registration) {
@@ -66,4 +67,4 @@ exports.addRegistration = async (req, res) => {
   } catch (error) {
     console.error('Error fetching registration:', error.message);
   }
-}
+};

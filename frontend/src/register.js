@@ -11,7 +11,7 @@ const Register = () => {
   const [userName, setUserName] = useState('');
   const [members, setMembers] = useState();
   const navigate = useNavigate(); // To redirect user if role is not user
-
+const [registration, setRegistration] = useState(null);
   const categoryParticipants = {
     highprep: 8,
     midprep: 6,

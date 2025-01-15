@@ -24,6 +24,7 @@ const Register = () => {
     phoneNumber: "",
     emailId: "",
     department: "",
+    programme: "",
     year:null
   }));
 
@@ -32,6 +33,7 @@ const Register = () => {
     phoneNumber: "",
     emailId: "",
     department: "",
+    programme: "",
     year:null
   })));  // initialize with your initial data
 
@@ -110,12 +112,13 @@ const Register = () => {
         return <span>0</span>;
     }
   };
-  const addMember = (name, phone, email, department, year) => {
+  const addMember = (name, phone, email, department,programme, year) => {
     const newMember = {
       name,
       phone,
       email,
       department,
+      programme,
       year,
     };
     setMembers([...members, newMember]);
@@ -226,6 +229,16 @@ const Register = () => {
     console.log(membersNew);
    
   };
+
+  const handleInputChangeProgramme = (e,index) => {
+    //const updatedMembers = [...membersNew];  // Create a copy of the original array
+    membersNew[index].programme = e.target.value;  // Modify the specific field dynamically
+  
+     // Update the state with the modified array
+    
+    // Log the updated state
+    console.log(membersNew);
+  }
 
 
  const newRegistartion = {
@@ -344,7 +357,7 @@ console.log(userName)
           </div>
           </div>
           
-        
+        <p>(You cannot update the details after submitting the form.)</p>
           <p className="registercategory">
          <div className='registericon'>  {getCategoryIcon(category)}</div> 
          <div className="registername">
@@ -361,6 +374,7 @@ console.log(userName)
         {Array.from({ length: numberOfMembers }).map((_, index) => (
           <div key={index} className="mb-4">
             <h3 className="formh3">Member {index + 1}</h3>
+            <div className='row'>
             <label> 
               <input 
               placeholder="Name"
@@ -372,6 +386,25 @@ console.log(userName)
               />
             </label>
             <br />
+
+            <label>
+            <div   className="formfield" >
+            
+             <input 
+              placeholder="Programme"
+                type="text" 
+              
+                onChange={(e) => handleInputChangeProgramme(e, index)} 
+              className="formfieldbox"
+                required 
+              />
+             
+             </div>
+            </label>
+            
+            <br />
+            </div>
+            <br/>
             <div className="formbelow">
                 <div className="row">
             <label>
@@ -423,6 +456,8 @@ console.log(userName)
               </div> 
             </label>
             <br />
+
+            
            
             <label>
             <div   className="formfield" >

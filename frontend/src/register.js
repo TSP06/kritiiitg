@@ -259,7 +259,7 @@ const [registration, setRegistration] = useState(null);
     console.log(userName);
     try {
       const response = await axios.get(
-        `https://kritibackend.onrender.com/api/registration/fetch/${encodeURIComponent(userName)}/${encodeURIComponent(title)}`
+        `https://kritibackend.onrender.com/api/register/fetch/${encodeURIComponent(userName)}/${encodeURIComponent(title)}`
       );
       setRegistration(response.data?.data || []);
     } catch (err) {

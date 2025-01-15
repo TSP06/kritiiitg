@@ -1,3 +1,5 @@
+// models/Registration.js
+
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
@@ -21,34 +23,27 @@ const registrationSchema = new Schema(
         name: {
           type: String,
           required: true,
-          trim: true,
-          minlength: 2,
         },
         phoneNumber: {
           type: String,
           required: true,
-          
         },
         emailId: {
           type: String,
           required: true,
-          
+          match: /.+\@.+\..+/,
         },
         department: {
           type: String,
           required: true,
-          
         },
-        year: {
-          type: Number,
-          required: true,
-          
-        },
-        programme: {
+        programme:{
           type: String,
           required: true,
-          trim: true,
-          minlength: 3,
+        },
+        year: {
+          type: String,
+          required: true,
         },
       },
     ],
@@ -60,7 +55,7 @@ const registrationSchema = new Schema(
 registrationSchema.pre('save', function (next) {
   const registration = this;
   const category = registration.category;
-  const membersCount = registration.membersNew.length;
+ // const membersCount = registration.members.length;
 
   let maxMembers = 0;
 
@@ -84,7 +79,7 @@ registrationSchema.pre('save', function (next) {
   }
 
   // Validation: Ensure the number of members fits the category
-  if (membersCount > maxMembers) {
+ /* if (membersCount > maxMembers) {
     return next(
       new Error(`You can only have up to ${maxMembers} members for the selected category.`)
     );
@@ -92,7 +87,7 @@ registrationSchema.pre('save', function (next) {
 
   if (membersCount < 1) {
     return next(new Error('At least one member is required.'));
-  }
+  }*/
 
   next();
 });

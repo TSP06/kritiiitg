@@ -15,23 +15,7 @@ exports.addRegistration = async (req, res) => {
       return res.status(400).json({ success: false, message: 'Members list cannot be empty.' });
     }
 
-    registrationData.membersNew.forEach((member, index) => {
-      if (!/^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(member.emailId)) {
-        throw new Error(`Invalid email format for member at index ${index + 1}`);
-      }
-
-      if (!/^\+?[1-9]\d{1,14}$/.test(member.phoneNumber)) {
-        throw new Error(`Invalid phone number for member at index ${index + 1}`);
-      }
-
-      if (typeof member.year !== 'number' || member.year < 1 || member.year > 5) {
-        throw new Error(`Year must be a number between 1 and 5 for member at index ${index + 1}`);
-      }
-
-      if (typeof member.programme !== 'string' || member.programme.trim().length < 3) {
-        throw new Error(`Programme must be at least 3 characters long for member at index ${index + 1}`);
-      }
-    });
+    
 
     // Create a new registration instance with the validated data
     const registration = new Registration(registrationData);

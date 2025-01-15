@@ -27,12 +27,7 @@ const registrationSchema = new Schema(
         phoneNumber: {
           type: String,
           required: true,
-          validate: {
-            validator: function (v) {
-              return /^\+?[1-9]\d{1,14}$/.test(v); // Validates international phone numbers
-            },
-            message: (props) => `${props.value} is not a valid phone number.`,
-          },
+          
         },
         emailId: {
           type: String,

@@ -6,8 +6,8 @@ exports.addRegistration = async (req, res) => {
   console.log(req.body);
   const registrationData = req.body.newRegistration; // Corrected typo in "newRegistration"
   console.log("function called");
-  console.log(registrationData);
-  console.log(registrationData.membersNew);
+ // console.log(registrationData);
+ // console.log(registrationData.membersNew);
 
   try {
     // Validate membersNew data

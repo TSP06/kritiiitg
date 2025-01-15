@@ -19,19 +19,6 @@ const [registration, setRegistration] = useState(null);
     noprep: 2,
   };
 
-  useEffect(() => {
-    const fetchRegistration = async () => {
-      try {
-        const response = await axios.get(`https://kritibackend.onrender.com/api/registration/${title}/${ps}`);
-        setRegistration(response.data.data);
-      } catch (err) {
-       console.log(err);
-        
-      }
-    };
-
-    fetchRegistration();
-  }, [title, ps]);
 
 
   console.log(registration);
@@ -264,6 +251,22 @@ const [registration, setRegistration] = useState(null);
     ps:title,
    membersNew
  };
+
+
+    useEffect(() => {
+    const fetchRegistration = async () => {
+      try {
+        const response = await axios.get(`https://kritibackend.onrender.com/api/registration/${userName}/${title}`);
+        setRegistration(response.data.data);
+      } catch (err) {
+       console.log(err);
+        
+      }
+    };
+
+    fetchRegistration();
+  }, [userName, title]);
+
 
  const handleSubmit = async (e) => {
     // Ensure setMembers is being used correctly in your component

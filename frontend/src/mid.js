@@ -53,8 +53,8 @@ const MPCards = (userLoggedIn) => {
 <div>  <strong>Time to Solve:</strong> 2-3 weeks (varies depending on the specific problem statement) </div>
 </div>`
 
-const para2 = `  High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
-  to tackle intensive projects.`
+//const para2 = `  High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
+//  to tackle intensive projects.`
 
   useEffect(() => {
     const fetchProblemStatements = async () => {

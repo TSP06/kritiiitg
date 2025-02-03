@@ -49,13 +49,13 @@ const MPCards = (userLoggedIn
   const title = "Low Prep";
   const para1 = `The Low Prep category offers problem statements designed to be approachable yet stimulating. These challenges are ideal for participants with limited preparation time or those new to competitive problem-solving. Key details of this category:`
  const list = `
-  <div><strong>Points:</strong> 400</div>
+  <div><strong>Points:</strong> 250</div>
   <div><strong>Team Size:</strong> 4</div>
   <div><strong>Time to Solve:</strong> 1-2 weeks (varies depending on the specific problem statement)</div>
 `
 
- const para2 = ` High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
-  to tackle intensive projects.`
+// const para2 = ` High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
+//  to tackle intensive projects.`
 
 
   useEffect(() => {

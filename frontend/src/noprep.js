@@ -78,8 +78,8 @@ const MPCards = ({ userLoggedIn }) => {
     <div><strong>Time to Solve:</strong> NA </div>
   `
   
-  const para2 = `  High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
-    to tackle intensive projects.`
+//  const para2 = `  High Prep problem statements are a perfect opportunity for teams to push their boundaries and showcase their ability 
+ //   to tackle intensive projects.`
   
 
   return (
